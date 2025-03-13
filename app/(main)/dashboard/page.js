@@ -1,5 +1,10 @@
 import React from "react";
+import AuthHeader from "./components/AuthHeader";
 
 export default function HomePage() {
-  return <div>Authenticated</div>;
+  return (
+    <div>
+      <AuthHeader />
+    </div>
+  );
 }
