@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import BackgroundWrapper from "@/components/layout/BackgroundWrapper";
+import { cookies } from "next/headers";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -14,12 +15,14 @@ export const metadata = {
   description: "Your AI based email inbox",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const auth = await cookies().get("auth");
+  console.log(auth);
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
         <BackgroundWrapper>
-          <Navbar />
+          {!auth && <Navbar />}
           {children}
         </BackgroundWrapper>
       </body>

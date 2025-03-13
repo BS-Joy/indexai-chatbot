@@ -24,7 +24,7 @@ export default function Hero() {
 
             {/* features */}
             {/* read */}
-            <div className="flex absolute -top-16 -left-20">
+            <div className="hidden lg:flex absolute -top-16 -left-20 animate-bounce">
               <p className="bg-[#F98FFD] py-2 px-10 font-medium rounded-full relative">
                 Read
               </p>
@@ -34,7 +34,7 @@ export default function Hero() {
             </div>
 
             {/* chat */}
-            <div className="flex absolute -top-16 -right-30">
+            <div className="hidden lg:flex absolute -top-16 -right-30 animate-bounce">
               <div className="rotate-180 absolute top-8 -left-8">
                 <TiLocationArrow size={"35px"} color="#FBE11D" />
               </div>
@@ -45,7 +45,7 @@ export default function Hero() {
             </div>
 
             {/* replay */}
-            <div className="flex absolute bottom-0">
+            <div className="hidden lg:flex absolute bottom-0 animate-bounce">
               <p className="bg-[#00ACDA] py-2 px-10 font-medium rounded-full">
                 Replay
               </p>
@@ -55,7 +55,7 @@ export default function Hero() {
             </div>
 
             {/* meeting */}
-            <div className="flex absolute -right-20 -bottom-10">
+            <div className="hidden lg:flex absolute -right-20 -bottom-10 animate-bounce">
               <div className="rotate-[-95deg] absolute bottom-8 -left-8">
                 <TiLocationArrow size={"35px"} color="#34A853" />
               </div>
@@ -66,15 +66,15 @@ export default function Hero() {
             </div>
           </div>
 
-          <p className="mt-14 sm:text-lg/relaxed">
+          <p className="mt-8 lg:mt-14 sm:text-lg/relaxed">
             Meet InboxAssistant, the AI that scans your inbox, organizes
             meetings, and sends responses automatically more short this sentence
           </p>
 
-          <div className="mt-8 flex w-full justify-center gap-4">
+          <div className="mt-8 flex flex-col md:flex-row w-full justify-center gap-4">
             <Link
-              className="relative block w-full rounded-full px-15 py-3 text-sm font-medium text-white shadow-sm hover:bg-[#00ACDA]/90 focus:ring-3 focus:outline-none"
-              href="#"
+              className="relative block w-full rounded-full px-15 py-5 text-sm font-medium text-white shadow-sm hover:bg-[#00ACDA]/90 focus:ring-3 focus:outline-none"
+              href="/(main)/"
             >
               <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-[#00ACDA] to-[#43D4FB]">
                 <span className="flex h-full w-full items-center justify-center rounded-full bg-[#E9E9E9] text-[#252525] hover:text-[#00ACDA]">

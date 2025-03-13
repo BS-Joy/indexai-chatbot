@@ -3,21 +3,21 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import logoImage from "@/public/logo.png";
-import bgImage from "@/public/herobg.png";
+import NavLinks from "./NavLinks";
 
 export default function Navbar() {
   return (
     <header className=" border-b border-b-white ">
-      <div className="container flex h-20 w-full items-center px-4 md:px-6 justify-between mx-auto">
+      <div className="container flex h-24 w-full py-6 items-center px-4 md:px-6 justify-between mx-auto">
         {/* Logo should always be visible */}
-        <Link href="/" className="flex items-center" prefetch={false}>
+        <Link href="/" className="flex items-center w-full" prefetch={false}>
           {/* <MountainIcon className="h-6 w-6" /> */}
           <Image src={logoImage} alt="Index Ai Logo" className="si" />
           {/* <span className="sr-only">Acme Inc</span> */}
         </Link>
 
         {/* Navigation for large screens */}
-        <nav className="hidden lg:flex gap-6 min-w-[400px]">
+        <nav className="hidden lg:flex gap-6 w-full">
           <NavLinks />
         </nav>
 
@@ -39,28 +39,6 @@ export default function Navbar() {
         </Sheet>
       </div>
     </header>
-  );
-}
-
-function NavLinks() {
-  return (
-    <div className="grid gap-2 py-6 lg:flex lg:gap-6 lg:py-0 w-full">
-      {[
-        { title: "About Us", path: "about" },
-        { title: "Security", path: "/security" },
-        { title: "Team", path: "/team" },
-        { title: "Contact", path: "/contact" },
-      ].map((text) => (
-        <Link
-          key={text.title}
-          href={text.path}
-          className="flex w-full items-center py-2 text-lg font-semibold lg:text-sm lg:py-0"
-          prefetch={false}
-        >
-          {text.title}
-        </Link>
-      ))}
-    </div>
   );
 }
 
