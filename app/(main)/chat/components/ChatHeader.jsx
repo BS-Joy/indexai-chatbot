@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { SelectModel } from "./SelectModel";
+import { SelectModel } from "../../dashboard/components/SelectModel";
 
-export default function DashboardHeader() {
+export default function ChatHeader() {
   return (
-    <div className="bg-[#F1F1F1] flex justify-between items-center p-6 rounded-lg">
+    <div className="bg-[#F1F1F1] flex justify-between items-center p-6 rounded-lg mb-6 sticky top-0">
       <SelectModel />
       <Button
         variant="blueGradient"

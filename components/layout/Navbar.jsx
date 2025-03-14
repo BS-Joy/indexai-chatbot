@@ -1,13 +1,22 @@
+"use client";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import logoImage from "@/public/logo.png";
 import NavLinks from "./NavLinks";
+import { usePathname } from "next/navigation";
+
+const publicRoutes = ["/", "/about", "/connect", "/security", "/team"];
 
 export default function Navbar() {
+  const pathName = usePathname();
+
+  if (!publicRoutes.includes(pathName)) {
+    return;
+  }
   return (
-    <header className=" border-b border-b-white ">
+    <header className="  ">
       <div className="container flex h-24 w-full py-6 items-center px-4 md:px-6 justify-between mx-auto">
         {/* Logo should always be visible */}
         <Link href="/" className="flex items-center w-full" prefetch={false}>

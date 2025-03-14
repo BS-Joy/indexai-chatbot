@@ -1,4 +1,4 @@
-import * as React from "react";
+"use client";
 
 import {
   Select,
@@ -9,8 +9,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { usePathname } from "next/navigation";
 
 export function SelectModel() {
+  const path = usePathname();
+  console.log(path);
+  if (path !== "/chat") {
+    return <h1 className="text-2xl font-semibold">Welcome, Alpha Bytes</h1>;
+  }
   return (
     <Select className="">
       <SelectTrigger className="w-[180px] border-none focus-visible:ring-0 outline-none shadow-none data-[placeholder]:text-[#101010] [&_svg:not([class*='text-'])]:text-[#101010]">

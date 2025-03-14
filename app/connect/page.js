@@ -52,12 +52,12 @@ export default function conntectPage() {
           </div>
 
           {/* Right Column - App Icons */}
-          <div className="grid grid-cols-2 gap-6 content-start">
+          <div className="grid grid-cols-2 gap-8">
             {apps.map((app, index) => (
               <div
                 key={app.name}
                 className={`
-                  rounded-2xl shadow-lg p-8 
+                  rounded-2xl shadow-lg p-8
                   ${app.className}
                   ${
                     index === 2 ? "col-span-2 lg:col-span-1 translate-x-36" : ""
