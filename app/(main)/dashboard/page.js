@@ -1,10 +1,9 @@
-import React from "react";
-import AuthHeader from "./components/AuthHeader";
+import DashboardHeader from "./components/DashboardHeader";
 
-export default function HomePage() {
+export default async function HomePage() {
   return (
     <div>
-      <AuthHeader />
+      <DashboardHeader />
     </div>
   );
 }

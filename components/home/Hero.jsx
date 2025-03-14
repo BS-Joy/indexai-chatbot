@@ -84,8 +84,8 @@ export default function Hero() {
             </Link>
 
             <Link
-              className="block w-full rounded-full px-12 py-3 text-sm font-medium bg-gradient-to-r from-[#00ACDA] to-[#43D4FB] shadow-sm hover:from-[#43D4FB] hover:to-[#00ACDA] focus:ring-3 focus:outline-hidden transition-colors duration-500"
-              href="#"
+              className="block w-full rounded-full px-12 py-3 text-sm font-medium  focus:outline-hidden link-btn"
+              href="/dashboard"
             >
               Login
             </Link>

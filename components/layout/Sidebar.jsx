@@ -11,6 +11,7 @@ import { MdOutlineDashboard } from "react-icons/md";
 import { MdOutlineChatBubbleOutline } from "react-icons/md";
 import { RiSettings2Line } from "react-icons/ri";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { cookies } from "next/headers";
 
 export default function Sidebar({ children }) {
   return (
@@ -69,15 +70,33 @@ export default function Sidebar({ children }) {
                 prefetch={false}
               >
                 <RiSettings2Line className="size-6" color="#101010" />
-                Customers
+                Setting
               </Link>
             </nav>
           </div>
           <div className="space-y-4">
-            <Button className="flex items-center gap-2 text-sm" variant="ghost">
-              <GrLogout className="size-6" />
-              <span>Logout</span>
-            </Button>
+            <form
+              action={async () => {
+                "use server";
+
+                console.log("i am here");
+
+                const cookiestore = await cookies();
+                const auth = cookiestore.get("auth");
+                if (auth) {
+                  cookiestore.delete("auth");
+                }
+              }}
+            >
+              <Button
+                type="submit"
+                className="flex items-center gap-2 text-sm cursor-pointer"
+                variant="ghost"
+              >
+                <GrLogout className="size-6" />
+                <span>Logout</span>
+              </Button>
+            </form>
           </div>
         </div>
       </div>

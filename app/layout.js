@@ -16,8 +16,8 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const auth = await cookies().get("auth");
-  console.log(auth);
+  const cookieStore = await cookies();
+  const auth = cookieStore.get("auth");
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>

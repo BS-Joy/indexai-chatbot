@@ -120,7 +120,13 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+@utility link-btn {
+  @apply bg-gradient-to-r from-[#00ACDA] to-[#43D4FB] shadow-sm hover:from-[#43D4FB] hover:to-[#00ACDA] transition-colors duration-500
 }
