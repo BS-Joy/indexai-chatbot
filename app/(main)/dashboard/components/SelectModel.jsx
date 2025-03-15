@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation";
 
 export function SelectModel() {
   const path = usePathname();
-  console.log(path);
+
   if (path !== "/chat") {
     return <h1 className="text-2xl font-semibold">Welcome, Alpha Bytes</h1>;
   }

@@ -16,7 +16,7 @@ export default function Navbar() {
     return;
   }
   return (
-    <header className="  ">
+    <header className="">
       <div className="container flex h-24 w-full py-6 items-center px-4 md:px-6 justify-between mx-auto">
         {/* Logo should always be visible */}
         <Link href="/" className="flex items-center w-full" prefetch={false}>

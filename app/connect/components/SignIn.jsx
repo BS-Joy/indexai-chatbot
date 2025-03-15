@@ -27,11 +27,20 @@ const apps = [
 export default function SignIn() {
   const logIn = async (provider) => {
     try {
-      console.log(provider);
+      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL; // Change this to your actual base URL
+
+      const response = await axios.get(`${baseUrl}/auth/${provider}/login`, {
+        // headers: {
+        //   authProvider: provider,
+        // },
+      });
+
+      console.log("Login Response:", response.data);
     } catch (error) {
-      console.log(error);
+      console.error("Login Error:", error);
     }
   };
+
   return (
     <div className="grid grid-cols-2 gap-8">
       {apps.map((app, index) => (
