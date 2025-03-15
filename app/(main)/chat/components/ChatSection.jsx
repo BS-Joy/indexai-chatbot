@@ -53,7 +53,7 @@ export default function ChatSection() {
             <div className="space-y-6 overflow-auto flex flex-col">
               <div className="flex justify-end">
                 <Card className="bg-[#E6E6E6] p-4 w-fit shadow-none border-none">
-                  <p className="text-[#707070]">
+                  <p className="text-[#101010]">
                     The Bible's main message can be understood as God's plan for
                     redemption and reconciliation with humanity. At its core, it
                     tells the story of
@@ -61,7 +61,7 @@ export default function ChatSection() {
                 </Card>
               </div>
 
-              <Card className="bg-white p-4 shadow-none border-none">
+              <Card className="bg-transparent p-4 shadow-none border-none">
                 <p className="text-[#434343]">
                   The Bible's main message can be understood as God's plan for
                   redemption and reconciliation with humanity. At its core, it
@@ -75,7 +75,7 @@ export default function ChatSection() {
 
               <div className="flex justify-end">
                 <Card className="bg-[#E6E6E6] p-4 w-fit shadow-none border-none">
-                  <p className="text-[#707070]">
+                  <p className="text-[#101010]">
                     The Bible's main message can be understood as God's plan for
                     redemption and reconciliation with humanity. At its core, it
                     tells the story of
@@ -83,7 +83,7 @@ export default function ChatSection() {
                 </Card>
               </div>
 
-              <Card className="bg-white p-4 shadow-none border-none">
+              <Card className="bg-transparent p-4 shadow-none border-none">
                 <p className="text-gray-700">
                   The Bible's main message can be understood as God's plan for
                   redemption and reconciliation with humanity. At its core, it
