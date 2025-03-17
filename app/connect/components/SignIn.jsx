@@ -2,11 +2,12 @@
 
 import axios from "axios";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const apps = [
   {
     name: "Outlook",
-    provider: "outlook",
+    provider: "microsoft",
     icon: "https://cdn.iconscout.com/icon/free/png-512/free-outlook-logo-icon-download-in-svg-png-gif-file-formats--office-365-pack-logos-icons-1174817.png?f=webp&w=256",
     className: "bg-[#0078D4]",
   },
@@ -25,17 +26,20 @@ const apps = [
 ];
 
 export default function SignIn() {
+  const router = useRouter();
   const logIn = async (provider) => {
     try {
       const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL; // Change this to your actual base URL
 
-      const response = await axios.get(`${baseUrl}/auth/${provider}/login`, {
-        // headers: {
-        //   authProvider: provider,
-        // },
-      });
+      // const response = await axios.get(`${baseUrl}/auth/${provider}`, {
+      //   // headers: {
+      //   //   authProvider: provider,
+      //   // },
+      // });
 
-      console.log("Login Response:", response.data);
+      router.push(`${baseUrl}/auth/oauth/${provider}?redirect=/dashboard`);
+
+      // console.log("Login Response:", response.data);
     } catch (error) {
       console.error("Login Error:", error);
     }

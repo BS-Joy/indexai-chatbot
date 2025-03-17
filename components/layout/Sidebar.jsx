@@ -15,6 +15,7 @@ import { RiSettings2Line } from "react-icons/ri";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import ChatHeader from "@/app/(main)/chat/components/ChatHeader";
 import { usePathname, useRouter } from "next/navigation";
+import { logoutAction } from "@/app/actions/authActions";
 
 const navLinks = [
   {
@@ -38,7 +39,18 @@ const publicRoutes = ["/", "/about", "/connect", "/security", "/team"];
 
 export default function Sidebar({ children }) {
   const pathName = usePathname();
+
   const router = useRouter();
+
+  const handleLogout = async () => {
+    await logoutAction();
+
+    router.push("/");
+
+    // if (res.success) {
+    //   router.push("/");
+    // }
+  };
 
   if (publicRoutes.includes(pathName)) {
     return;
@@ -57,11 +69,10 @@ export default function Sidebar({ children }) {
               prefetch={false}
             >
               <Avatar>
-                <AvatarImage
-                  src="https://github.com/shadcn.png"
-                  alt="@shadcn"
-                />
-                <AvatarFallback>CN</AvatarFallback>
+                <p className="relative inline-flex items-center justify-center w-10 h-10 text-lg text-white rounded-full bg-emerald-500">
+                  {" "}
+                  CP{" "}
+                </p>
               </Avatar>
               <div>
                 <h4 className="font-semibold text-[20px]">Alpha Bytes</h4>
@@ -96,7 +107,7 @@ export default function Sidebar({ children }) {
               type="submit"
               className="flex items-center gap-2 text-sm cursor-pointer"
               variant="ghost"
-              onClick={() => router.push("/")}
+              onClick={handleLogout}
             >
               <GrLogout className="size-6" />
               <span>Logout</span>
