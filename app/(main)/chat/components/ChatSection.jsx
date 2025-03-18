@@ -9,10 +9,10 @@ import { RiSparkling2Line } from "react-icons/ri";
 export default function ChatSection() {
   const show = false;
   return (
-    <section className="flex-1 p-8 bg-[#F1F1F1] max-h-[81vh] h-screen rounded-[20px]">
+    <section className="flex-1 p-6 lg:p-8 bg-[#F1F1F1] max-h-[81vh] h-screen rounded-[20px]">
       <div className="mx-auto h-full">
         {/* Logo and Welcome */}
-        {show && (
+        {show ? (
           <div className="flex flex-col justify-between">
             <div className="text-center mb-8">
               <h1 className="text-4xl font-bold mb-1">Inbox AI.</h1>
@@ -45,12 +45,11 @@ export default function ChatSection() {
               </div>
             </div>
           </div>
-        )}
-
-        {/* Message Blocks */}
-        {!show && (
+        ) : (
+          // Message Blocks
           <div className="flex flex-col justify-between h-full">
             <div className="space-y-6 overflow-auto flex flex-col">
+              {/* user message */}
               <div className="flex justify-end">
                 <Card className="bg-[#E6E6E6] p-4 w-fit shadow-none border-none">
                   <p className="text-[#101010]">
@@ -61,6 +60,7 @@ export default function ChatSection() {
                 </Card>
               </div>
 
+              {/* bot message */}
               <Card className="bg-transparent p-4 shadow-none border-none">
                 <p className="text-[#434343]">
                   The Bible's main message can be understood as God's plan for
@@ -73,6 +73,7 @@ export default function ChatSection() {
                 </p>
               </Card>
 
+              {/* user message */}
               <div className="flex justify-end">
                 <Card className="bg-[#E6E6E6] p-4 w-fit shadow-none border-none">
                   <p className="text-[#101010]">
@@ -83,6 +84,7 @@ export default function ChatSection() {
                 </Card>
               </div>
 
+              {/* bot message */}
               <Card className="bg-transparent p-4 shadow-none border-none">
                 <p className="text-gray-700">
                   The Bible's main message can be understood as God's plan for
@@ -99,25 +101,25 @@ export default function ChatSection() {
             </div>
 
             {/* Question Input */}
-            <div className="">
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                  <RiSparkling2Line size={18} className="text-[#101010]" />
-                </div>
-                <Input
-                  className="pl-10 pr-12 py-7 w-full bg-white rounded-lg border focus-visible:border-ring focus-visible:ring-[#101010] focus-visible:ring-[1px] placeholder:text-[#101010]"
-                  placeholder="Ask Your Question"
-                />
-                <Button
-                  className="absolute cursor-pointer inset-y-0 right-0 top-3 flex items-center pr-3 text-[#101010] hover:bg-transparent"
-                  variant="ghost"
-                >
-                  <IoSend size={20} />
-                </Button>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <RiSparkling2Line size={18} className="text-[#101010]" />
               </div>
+              <Input
+                className="pl-10 pr-12 py-7 w-full bg-white rounded-lg border focus-visible:border-ring focus-visible:ring-[#101010] focus-visible:ring-[1px] placeholder:text-[#101010]"
+                placeholder="Ask Your Question"
+              />
+              <Button
+                className="absolute cursor-pointer inset-y-0 right-0 top-3 flex items-center pr-3 text-[#101010] hover:bg-transparent"
+                variant="ghost"
+              >
+                <IoSend size={20} />
+              </Button>
             </div>
           </div>
         )}
+
+        {/* {!show && } */}
       </div>
     </section>
   );

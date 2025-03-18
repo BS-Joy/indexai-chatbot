@@ -16,6 +16,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import ChatHeader from "@/app/(main)/chat/components/ChatHeader";
 import { usePathname, useRouter } from "next/navigation";
 import { logoutAction } from "@/app/actions/authActions";
+import { useState } from "react";
 
 const navLinks = [
   {
@@ -38,6 +39,7 @@ const navLinks = [
 const publicRoutes = ["/", "/about", "/connect", "/security", "/team"];
 
 export default function Sidebar({ children }) {
+  const [isOpen, setIsOpen] = useState(false);
   const pathName = usePathname();
 
   const router = useRouter();
@@ -46,10 +48,6 @@ export default function Sidebar({ children }) {
     await logoutAction();
 
     router.push("/");
-
-    // if (res.success) {
-    //   router.push("/");
-    // }
   };
 
   if (publicRoutes.includes(pathName)) {
@@ -128,7 +126,7 @@ export default function Sidebar({ children }) {
               <MountainIcon className="h-6 w-6" />
               <span className="text-lg">Acme Inc</span>
             </Link>
-            <Sheet>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon">
                   <MenuIcon className="h-6 w-6" />
@@ -149,6 +147,7 @@ export default function Sidebar({ children }) {
                             pathName === link.path && "link-btn"
                           }`}
                           prefetch={false}
+                          onClick={() => setIsOpen(false)}
                         >
                           <link.icon className="size-6" color="#101010" />
                           {link.label}
@@ -159,6 +158,7 @@ export default function Sidebar({ children }) {
                   <div className="space-y-4">
                     <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
                       <Button
+                        onClick={handleLogout}
                         className="flex items-center gap-2 text-sm"
                         variant="ghost"
                       >
@@ -172,10 +172,10 @@ export default function Sidebar({ children }) {
             </Sheet>
           </div>
         </header>
-        <main className="p-4 lg:p-6">
+        <section className="p-4 pb-0 lg:p-6">
           <ChatHeader />
           {children}
-        </main>
+        </section>
       </div>
     </div>
   );
