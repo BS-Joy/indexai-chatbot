@@ -159,7 +159,7 @@ export default function Sidebar({ children }) {
                     <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
                       <Button
                         onClick={handleLogout}
-                        className="flex items-center gap-2 text-sm"
+                        className="flex items-center gap-2 text-sm cursor-pointer"
                         variant="ghost"
                       >
                         <GrLogout className="size-6" />

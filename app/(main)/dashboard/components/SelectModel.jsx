@@ -15,7 +15,11 @@ export function SelectModel() {
   const path = usePathname();
 
   if (path !== "/chat") {
-    return <h1 className="text-2xl font-semibold">Welcome, Alpha Bytes</h1>;
+    return (
+      <h1 className="text-lg lg:text-2xl font-semibold">
+        Welcome, Alpha Bytes
+      </h1>
+    );
   }
   return (
     <Select className="">

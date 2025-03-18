@@ -52,11 +52,11 @@ export default function SignIn() {
           onClick={() => logIn(app.provider)}
           key={app.name}
           className={`
-                      rounded-2xl shadow-lg p-8 cursor-pointer
+                      rounded-2xl shadow-lg p-6 lg:p-8 cursor-pointer
                       ${app.className}
                       ${
                         index === 2
-                          ? "col-span-2 lg:col-span-1 translate-x-36"
+                          ? "col-span-2 lg:col-span-1 lg:translate-x-36 p-8"
                           : ""
                       }
                     `}

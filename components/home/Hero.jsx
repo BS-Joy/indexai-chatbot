@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:items-center">
         <div className="mx-auto max-w-3xl text-center">
           <div className="flex justify-center mb-5">
-            <p className="bg-[#1010100D] w-fit px-10 py-3 rounded-full text-[#101010] font-medium text-lg">
+            <p className="bg-[#1010100D] w-fit px-5 md:px-10 py-1 md:py-3 rounded-full text-[#101010] font-medium text-sm md:text-lg">
               Introduce AI Chatbot
             </p>
           </div>

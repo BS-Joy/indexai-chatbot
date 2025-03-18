@@ -6,10 +6,13 @@ import Image from "next/image";
 import logoImage from "@/public/logo.png";
 import NavLinks from "./NavLinks";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const publicRoutes = ["/", "/about", "/connect", "/security", "/team"];
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const pathName = usePathname();
 
   if (!publicRoutes.includes(pathName)) {
@@ -21,7 +24,11 @@ export default function Navbar() {
         {/* Logo should always be visible */}
         <Link href="/" className="flex items-center w-full" prefetch={false}>
           {/* <MountainIcon className="h-6 w-6" /> */}
-          <Image src={logoImage} alt="Index Ai Logo" className="si" />
+          <Image
+            src={logoImage}
+            alt="Index Ai Logo"
+            className="si w-28 lg:w-fit"
+          />
           {/* <span className="sr-only">Acme Inc</span> */}
         </Link>
 
@@ -31,7 +38,7 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile Menu (Hamburger on the right) */}
-        <Sheet>
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button
               variant="outline"
@@ -43,7 +50,7 @@ export default function Navbar() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right">
-            <NavLinks />
+            <NavLinks setIsOpen={setIsOpen} />
           </SheetContent>
         </Sheet>
       </div>
