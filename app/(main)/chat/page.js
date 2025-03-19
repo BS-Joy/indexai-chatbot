@@ -1,6 +1,6 @@
 import React from "react";
 import ChatSection from "./components/ChatSection";
 
-export default function chatPage() {
+export default async function chatPage() {
   return <ChatSection />;
 }

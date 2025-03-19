@@ -7,7 +7,7 @@ export default function BackgroundWrapper({ children }) {
   const isHomePage = usePathname() === "/";
 
   return (
-    <section
+    <main
       className={`min-h-screen ${
         isHomePage
           ? "bg-[#e9e9e9] bg-no-repeat bg-cover"
@@ -16,6 +16,6 @@ export default function BackgroundWrapper({ children }) {
       style={isHomePage ? { backgroundImage: `url(${bgImage.src})` } : {}}
     >
       {children}
-    </section>
+    </main>
   );
 }

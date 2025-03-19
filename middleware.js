@@ -9,14 +9,14 @@ export async function middleware(request) {
   // console.log(accessToken);
 
   // Redirect unauthenticated users trying to access protected routes
-  if (!accessToken && !publicRoutes.includes(pathname)) {
-    return NextResponse.redirect(new URL("/connect", request.url));
-  }
+  // if (!accessToken && !publicRoutes.includes(pathname)) {
+  //   return NextResponse.redirect(new URL("/connect", request.url));
+  // }
 
-  // Redirect authenticated users away from public routes
-  if (accessToken && publicRoutes.includes(pathname)) {
-    return NextResponse.redirect(new URL(protectedRoute, request.url));
-  }
+  // // Redirect authenticated users away from public routes
+  // if (accessToken && publicRoutes.includes(pathname)) {
+  //   return NextResponse.redirect(new URL(protectedRoute, request.url));
+  // }
 
   return NextResponse.next();
 }

@@ -21,7 +21,7 @@ export default function NavLinks({ setIsOpen }) {
             currentPath === text.path && "from-[#00ACDA] to-[#43D4FB]"
           }`}
           prefetch={false}
-          onClick={() => setIsOpen(false)}
+          onClick={() => setIsOpen && setIsOpen(false)}
         >
           {text.title}
         </Link>

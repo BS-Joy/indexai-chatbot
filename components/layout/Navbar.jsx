@@ -7,6 +7,7 @@ import logoImage from "@/public/logo.png";
 import NavLinks from "./NavLinks";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { AiOutlineMenu } from "react-icons/ai";
 
 const publicRoutes = ["/", "/about", "/connect", "/security", "/team"];
 
@@ -45,7 +46,7 @@ export default function Navbar() {
               size="icon"
               className="lg:hidden ml-auto bg-[#e9e9e9] border border-white"
             >
-              <MenuIcon className="h-6 w-6" />
+              <AiOutlineMenu className="h-6 w-6" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
@@ -75,25 +76,6 @@ function MenuIcon(props) {
       <line x1="4" x2="20" y1="12" y2="12" />
       <line x1="4" x2="20" y1="6" y2="6" />
       <line x1="4" x2="20" y1="18" y2="18" />
-    </svg>
-  );
-}
-
-function MountainIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
     </svg>
   );
 }

@@ -17,6 +17,7 @@ import ChatHeader from "@/app/(main)/chat/components/ChatHeader";
 import { usePathname, useRouter } from "next/navigation";
 import { logoutAction } from "@/app/actions/authActions";
 import { useState } from "react";
+import { AiOutlineMenu } from "react-icons/ai";
 
 const navLinks = [
   {
@@ -38,7 +39,7 @@ const navLinks = [
 
 const publicRoutes = ["/", "/about", "/connect", "/security", "/team"];
 
-export default function Sidebar({ children }) {
+export default function Sidebar({ children, user }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathName = usePathname();
 
@@ -67,15 +68,17 @@ export default function Sidebar({ children }) {
               prefetch={false}
             >
               <Avatar>
-                <p className="relative inline-flex items-center justify-center w-10 h-10 text-lg text-white rounded-full bg-emerald-500">
-                  {" "}
-                  CP{" "}
-                </p>
+                <AvatarImage src={user.profilePicture} alt={user.name} />
+                <AvatarFallback className="bg-gradient-to-r from-[#00ACDA] to-[#43D4FB] text-sm">
+                  N/A
+                </AvatarFallback>
               </Avatar>
               <div>
-                <h4 className="font-semibold text-[20px]">Alpha Bytes</h4>
+                <h4 className="font-semibold text-[20px]">
+                  {user.name || "N/A"}
+                </h4>
                 <span className="text-xs font-light text-[#101010]">
-                  alphabytes450@gmail.com
+                  {user.email || "N/A"}
                 </span>
               </div>
             </Link>
@@ -129,7 +132,7 @@ export default function Sidebar({ children }) {
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon">
-                  <MenuIcon className="h-6 w-6" />
+                  <AiOutlineMenu className="h-6 w-6" />
                   <span className="sr-only">Toggle navigation</span>
                 </Button>
               </SheetTrigger>
@@ -172,33 +175,12 @@ export default function Sidebar({ children }) {
             </Sheet>
           </div>
         </header>
-        <section className="p-4 pb-0 lg:p-6">
+        <section className="p-4 pb-0">
           <ChatHeader />
           {children}
         </section>
       </div>
     </div>
-  );
-}
-
-function MenuIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="4" x2="20" y1="12" y2="12" />
-      <line x1="4" x2="20" y1="6" y2="6" />
-      <line x1="4" x2="20" y1="18" y2="18" />
-    </svg>
   );
 }
 
