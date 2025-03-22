@@ -1,4 +1,6 @@
+// import Sidebar from "@/components/layout/Sidebar";
 import Sidebar from "@/components/layout/Sidebar";
+import Sidebar2 from "@/components/layout/Sidebar2";
 import { axiosInstance } from "@/lib/axios";
 import { cookies, headers } from "next/headers";
 import React from "react";
@@ -22,8 +24,9 @@ export default async function RootLayout({ children }) {
   };
 
   return (
-    <section className="overflow-y-hidden">
+    <section className=" bg-white">
       <Sidebar user={user}>{children}</Sidebar>
+      {/* <Sidebar user={user}>{children}</Sidebar> */}
     </section>
   );
 }

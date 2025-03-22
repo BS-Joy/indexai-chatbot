@@ -57,9 +57,9 @@ export default function Sidebar({ children, user }) {
 
   return (
     <div className="flex h-screen w-full">
-      <div className="hidden lg:block lg:w-64 lg:shrink-0 lg:border-r lg:bg-gray-100 dark:lg:bg-gray-800">
+      <div className="hidden lg:block lg:w-64 lg:shrink-0  lg:bg-[#F1F1F1] dark:lg:bg-gray-800">
         {/* pc sidbar */}
-        <div className="flex h-full flex-col justify-between py-6 px-4">
+        <div className="flex h-full flex-col justify-between py-6 px-4 ">
           <div className="space-y-6">
             {/* sidebar header */}
             <Link
@@ -117,8 +117,8 @@ export default function Sidebar({ children, user }) {
         </div>
       </div>
 
-      {/* mobile sidebar */}
       <div className="flex-1">
+        {/* mobile sidebar */}
         <header className="sticky top-0 z-10 border-b bg-white px-4 py-3 dark:border-gray-800 dark:bg-gray-900 lg:hidden">
           <div className="flex items-center justify-between">
             <Link
@@ -175,8 +175,8 @@ export default function Sidebar({ children, user }) {
             </Sheet>
           </div>
         </header>
-        <section className="p-4 pb-0">
-          <ChatHeader />
+        <section className="p-10 pb-0">
+          {pathName === "/chat" && <ChatHeader />}
           {children}
         </section>
       </div>

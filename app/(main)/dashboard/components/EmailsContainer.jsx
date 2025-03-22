@@ -7,12 +7,12 @@ export default function EmailsContainer() {
       <EmailCard />
       <EmailCard />
       <EmailCard />
+      {/* <EmailCard />
       <EmailCard />
       <EmailCard />
       <EmailCard />
       <EmailCard />
-      <EmailCard />
-      <EmailCard />
+      <EmailCard /> */}
     </div>
   );
 }
