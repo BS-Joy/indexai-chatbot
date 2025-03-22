@@ -86,7 +86,7 @@ export default async function HomePage() {
     //     <EmailPagination />
     //   </div>
     // </section>
-    <section className="flex flex-col">
+    <section className="flex flex-col w-full">
       {/* welcome messages */}
       <h1 className="text-[18px] mb-3">Hi John,</h1>
       <p className="inline-flex items-center gap-2">
@@ -126,7 +126,7 @@ export default async function HomePage() {
 
         {/* emails table */}
         <div className="rounded-2xl border overflow-hidden">
-          <Table>
+          <Table className="">
             <TableHeader className="bg-gray-200 p-6">
               <TableRow>
                 <TableHead className="font-medium px-6 py-4">
@@ -203,7 +203,7 @@ export default async function HomePage() {
 
         {/* paginations */}
         <div className="flex justify-between mt-3 items-center">
-          <button className="link-btn px-3 py-2 rounded flex items-center gap-2">
+          <button className="link-btn px-6 py-2 rounded-full flex items-center gap-2">
             <RiSparkling2Line />
             <span>Ask Ai For Help</span>
           </button>

@@ -18,6 +18,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { logoutAction } from "@/app/actions/authActions";
 import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
+import { FaUserCircle } from "react-icons/fa";
+import { IoMdShareAlt } from "react-icons/io";
 
 const navLinks = [
   {
@@ -95,7 +97,9 @@ export default function Sidebar({ children, user }) {
                   }`}
                   prefetch={false}
                 >
-                  <link.icon className="size-6" color="#101010" />
+                  <span className="bg-white p-[6px] flex justify-center items-center rounded-full">
+                    <link.icon size={16} color="#101010" />
+                  </span>
                   {link.label}
                 </Link>
               ))}
@@ -106,11 +110,22 @@ export default function Sidebar({ children, user }) {
           <div className="space-y-4">
             <Button
               type="submit"
+              className="flex w-full justify-center items-center gap-2 text-sm cursor-pointer bg-[#01A846] hover:bg-[#01A846]/80 py-8 rounded text-white"
+              // variant="ghost"
+              // onClick={handleLogout}
+            >
+              <IoMdShareAlt className="size-6" />
+              <span>
+                Refer a Friend, <br /> get one month free!
+              </span>
+            </Button>
+            <Button
+              type="submit"
               className="flex items-center gap-2 text-sm cursor-pointer"
               variant="ghost"
               onClick={handleLogout}
             >
-              <GrLogout className="size-6" />
+              <FaUserCircle className="size-6" />
               <span>Profile</span>
             </Button>
             <Button
@@ -161,14 +176,36 @@ export default function Sidebar({ children, user }) {
                           prefetch={false}
                           onClick={() => setIsOpen(false)}
                         >
-                          <link.icon className="size-6" color="#101010" />
+                          <span className="bg-white p-[6px] flex justify-center items-center rounded-full">
+                            <link.icon size={16} color="#101010" />
+                          </span>
+
                           {link.label}
                         </Link>
                       ))}
                     </nav>
                   </div>
                   <div className="space-y-4">
-                    <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                    <div className="flex flex-col justify-start items-start gap-2 text-sm text-gray-500 dark:text-gray-400">
+                      <Button
+                        type="submit"
+                        className="flex w-full justify-center items-center gap-2 text-sm cursor-pointer bg-[#01A846] hover:bg-[#01A846]/80 py-8 rounded text-white"
+                        // variant="ghost"
+                        // onClick={handleLogout}
+                      >
+                        <IoMdShareAlt className="size-6" />
+                        <span>
+                          Refer a Friend, <br /> get one month free!
+                        </span>
+                      </Button>
+                      <Button
+                        onClick={handleLogout}
+                        className="flex items-center gap-2 text-sm cursor-pointer"
+                        variant="ghost"
+                      >
+                        <FaUserCircle className="size-6" />
+                        <span>Profile</span>
+                      </Button>
                       <Button
                         onClick={handleLogout}
                         className="flex items-center gap-2 text-sm cursor-pointer"
