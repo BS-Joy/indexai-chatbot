@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import SearchBar from "./components/SearchBar";
-import { RiInbox2Line } from "react-icons/ri";
+import { RiInbox2Line, RiSparkling2Line } from "react-icons/ri";
 import EmailsContainer from "./components/EmailsContainer";
 import { EmailPagination } from "./components/EmailPagination";
 import { FaCheckCircle } from "react-icons/fa";
@@ -86,7 +86,7 @@ export default async function HomePage() {
     //     <EmailPagination />
     //   </div>
     // </section>
-    <section className="flex flex-col ">
+    <section className="flex flex-col">
       {/* welcome messages */}
       <h1 className="text-[18px] mb-3">Hi John,</h1>
       <p className="inline-flex items-center gap-2">
@@ -200,7 +200,15 @@ export default async function HomePage() {
             </TableBody>
           </Table>
         </div>
-        <EmailPagination />
+
+        {/* paginations */}
+        <div className="flex justify-between mt-3 items-center">
+          <button className="link-btn px-3 py-2 rounded flex items-center gap-2">
+            <RiSparkling2Line />
+            <span>Ask Ai For Help</span>
+          </button>
+          <EmailPagination />
+        </div>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import Sidebar2 from "@/components/layout/Sidebar2";
 import { axiosInstance } from "@/lib/axios";
 import { cookies, headers } from "next/headers";
 import React from "react";
+import { RiSparkling2Line } from "react-icons/ri";
 
 export default async function RootLayout({ children }) {
   const cookieStore = await cookies();
@@ -24,7 +25,7 @@ export default async function RootLayout({ children }) {
   };
 
   return (
-    <section className=" bg-white">
+    <section className="bg-white">
       <Sidebar user={user}>{children}</Sidebar>
       {/* <Sidebar user={user}>{children}</Sidebar> */}
     </section>

@@ -10,7 +10,7 @@ import {
 
 export function EmailPagination() {
   return (
-    <Pagination className="mt-5">
+    <Pagination className="mt-5 w-fit mx-0">
       <PaginationContent className="gap-4">
         <PaginationItem>{/* <PaginationPrevious href="#" /> */}</PaginationItem>
         <PaginationItem>

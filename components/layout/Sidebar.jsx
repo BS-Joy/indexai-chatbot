@@ -33,7 +33,7 @@ const navLinks = [
   {
     path: "#",
     icon: RiSettings2Line,
-    label: "Setting",
+    label: "Your Apps",
   },
 ];
 
@@ -104,6 +104,15 @@ export default function Sidebar({ children, user }) {
 
           {/* sidebar footer */}
           <div className="space-y-4">
+            <Button
+              type="submit"
+              className="flex items-center gap-2 text-sm cursor-pointer"
+              variant="ghost"
+              onClick={handleLogout}
+            >
+              <GrLogout className="size-6" />
+              <span>Profile</span>
+            </Button>
             <Button
               type="submit"
               className="flex items-center gap-2 text-sm cursor-pointer"
