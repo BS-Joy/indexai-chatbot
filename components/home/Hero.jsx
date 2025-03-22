@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { TiLocationArrow } from "react-icons/ti";
+import HeroProviderIcon from "./ProviderIcon";
+import AllProviders from "./AllProviders";
 
 export default function Hero() {
   return (
     <section className="">
-      <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:items-center">
+      <div className="mx-auto max-w-screen-xl px-4 pt-16 lg:flex flex-col gap-12 lg:items-center">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="flex justify-center mb-5">
+          <div className="flex justify-center mb-1">
             <p className="bg-[#1010100D] w-fit px-5 md:px-10 py-1 md:py-3 rounded-full text-[#101010] font-medium text-sm md:text-lg">
               Introduce AI Chatbot
             </p>
@@ -14,12 +16,13 @@ export default function Hero() {
 
           {/* title */}
           <div className="relative">
-            <h1 className="text-3xl sm:text-7xl sm:leading-24 font-bold">
-              Meet Your E-mail <br />
-              Based for
-              <strong className="font-bold text-[#00ACDA] sm:block">
-                AI Inbox
-              </strong>
+            <h1 className="lg:w-[800px] text-6xl sm:leading-24 font-bold">
+              <span className="text-[70px]">
+                Stop Drowning in Email <br />
+              </span>{" "}
+              Meet Your <span className="text-[#00ACDA]">New Assistant</span>{" "}
+              Meet
+              <span className="text-[#FD8799]"> InboxAI</span>
             </h1>
 
             {/* features */}
@@ -71,6 +74,7 @@ export default function Hero() {
             meetings, and sends responses automatically more short this sentence
           </p>
 
+          {/* CTA's */}
           <div className="mt-8 flex flex-col md:flex-row w-full justify-center gap-4">
             <Link
               className="relative block w-full rounded-full px-15 py-5 text-sm font-medium text-white shadow-sm hover:bg-[#00ACDA]/90 "
@@ -78,7 +82,7 @@ export default function Hero() {
             >
               <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-[#00ACDA] to-[#43D4FB]">
                 <span className="flex h-full w-full items-center justify-center rounded-full bg-[#E9E9E9] text-[#252525] hover:text-[#00ACDA]">
-                  Free Trial
+                  Join the Waiting List
                 </span>
               </span>
             </Link>
@@ -91,6 +95,9 @@ export default function Hero() {
             </Link>
           </div>
         </div>
+
+        {/* providers */}
+        <AllProviders />
       </div>
     </section>
   );

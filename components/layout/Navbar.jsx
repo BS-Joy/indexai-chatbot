@@ -9,7 +9,14 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 
-const publicRoutes = ["/", "/about", "/connect", "/security", "/team"];
+const publicRoutes = [
+  "/",
+  "/pricing",
+  "/about",
+  "/connect",
+  // "/security",
+  // "/team",
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

@@ -9,9 +9,10 @@ export default function NavLinks({ setIsOpen }) {
   return (
     <div className="grid gap-2 py-6 pl-6 lg:flex mt-6 w-full">
       {[
+        { title: "Pricing Plans", path: "/pricing" },
         { title: "About Us", path: "/about" },
-        { title: "Security", path: "/security" },
-        { title: "Team", path: "/team" },
+        // { title: "Security", path: "/security" },
+        // { title: "Team", path: "/team" },
         { title: "Connect Today", path: "/connect" },
       ].map((text) => (
         <Link

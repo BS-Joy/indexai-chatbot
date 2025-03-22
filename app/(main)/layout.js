@@ -22,8 +22,10 @@ export default async function RootLayout({ children }) {
   };
 
   return (
-    <section className="">
-      <Sidebar user={user}>{children}</Sidebar>
-    </section>
+    <body className="overflow-hidden" style={{ overflow: "hidden" }}>
+      <section className="overflow-y-hidden">
+        <Sidebar user={user}>{children}</Sidebar>
+      </section>
+    </body>
   );
 }

@@ -8,7 +8,7 @@ export default function BackgroundWrapper({ children }) {
 
   return (
     <main
-      className={`min-h-screen ${
+      className={`min-h-screen overflow-hidden ${
         isHomePage
           ? "bg-[#e9e9e9] bg-no-repeat bg-cover"
           : "bg-[#E0E8EA] bg-gradient-to-r from-[#E5E8E9] from-10% via-[#E0E8EA] via-30% to-[#E3E8E9] to-90%"

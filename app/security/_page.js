@@ -1,10 +1,9 @@
 import { LockIcon, ShieldIcon, DocumentIcon } from "./components/SecurityIcons";
 import SecurityCard from "./components/SecurityCard";
-// import ""
 
-export default function page() {
+export default function securityPage() {
   return (
-    <div className="security-page min-h-screen  flex items-center justify-center py-20">
+    <div className="min-h-screen overflow-auto flex items-center justify-center  py-20">
       <div className="container max-w-4xl px-6 mx-auto">
         <div
           className="text-center mb-12"
@@ -18,7 +17,7 @@ export default function page() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Security isn&apos;t a feature. It&apos;s a priority
+            Security isn't a feature. It's a priority
           </h1>
           <p
             className="text-lg text-gray-600 max-w-3xl mx-auto"
@@ -27,8 +26,8 @@ export default function page() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             Studies show that almost 70% of workers use OpenAI for everyday
-            work, potentially feeding models with sensitive information.
-            That&apos;s where we come in.
+            work, potentially feeding models with sensitive information. That's
+            where we come in.
           </p>
         </div>
 
