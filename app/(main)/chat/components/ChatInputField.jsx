@@ -30,14 +30,23 @@ export default function ChatInputField() {
           file,
         }));
 
-        setAttachments([...attachments, ...newAttachments]);
+        setAttachments((prev) => [...prev, ...newAttachments]);
         setIsUploading(false);
+
+        // Reset the file input value to allow re-selecting the same file
+        if (fileInputRef.current) {
+          fileInputRef.current.value = "";
+        }
       }, 1000);
     }
   };
 
   const removeAttachment = (id) => {
     setAttachments(attachments.filter((attachment) => attachment.id !== id));
+    // Reset the file input value after removal
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
   };
 
   const handleSendMessage = () => {
@@ -48,6 +57,9 @@ export default function ChatInputField() {
       // Reset form after sending
       setMessage("");
       setAttachments([]);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
     }
   };
 
@@ -59,7 +71,7 @@ export default function ChatInputField() {
   };
 
   return (
-    <div className="w-full  mx-auto">
+    <div className="w-full mx-auto">
       <div className="relative flex items-start gap-2">
         {/* Message input area */}
         <div className="flex-1 relative">
@@ -106,7 +118,7 @@ export default function ChatInputField() {
 
       {/* Attachments section */}
       {(attachments.length > 0 || isUploading) && (
-        <div className="mt-3 flex items-center gap-3">
+        <div className="mt-3 flex flex-col md:flex-row items-center gap-1 md:gap-3">
           <p className="text-sm font-medium mb-2">Attachments:</p>
           <div className="flex flex-wrap gap-2">
             {isUploading && (

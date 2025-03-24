@@ -22,7 +22,7 @@ export default function Hero() {
               </span>{" "}
               Meet Your <span className="text-[#00ACDA]">New Assistant</span>{" "}
               Meet
-              <span className="text-[#FD8799]"> InboxAI</span>
+              <span className="text-[#00ACDA]"> InboxAI</span>
             </h1>
 
             {/* features */}

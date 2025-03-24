@@ -19,7 +19,6 @@ export function SelectComponent({
   seperator = false,
   className,
 }) {
-  console.log(options);
   return (
     <Select>
       <SelectTrigger

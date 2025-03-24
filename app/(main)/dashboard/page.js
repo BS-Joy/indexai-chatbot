@@ -94,7 +94,7 @@ export default async function HomePage() {
       </p>
 
       {/* statics */}
-      <div className="flex flex-col md:flex-row mt-6 gap-16 w-full">
+      <div className="flex mt-6 gap-4 md:gap-16 w-full">
         {/* unread mails */}
         <div className="flex gap-3">
           <Image src={gmail} alt="gmail logo" className="size-11" />
