@@ -32,7 +32,7 @@ export default function SignUpForm() {
 
   return (
     <div className="w-full max-w-md mx-auto">
-      <div className="text-center mb-6">
+      <div className="text-start mb-6">
         <h1 className="text-2xl font-bold mb-2">Join the Waiting List!</h1>
         <p className="text-gray-600">
           Sign up early to receive one month - cost free!
@@ -81,12 +81,14 @@ export default function SignUpForm() {
           />
         </div>
 
-        <Button
-          type="submit"
-          className="w-full rounded-full bg-gradient-to-r from-[#00ACDA] via-blue-400 to-[#43D4FB] hover:opacity-90 text-white"
-        >
-          Join
-        </Button>
+        <div className="flex justify-center">
+          <Button
+            type="submit"
+            className="py-6 mt-6 px-24 w-[80%] rounded-full bg-gradient-to-r from-[#00ACDA] via-blue-400 to-[#43D4FB] hover:opacity-90 text-white"
+          >
+            Join
+          </Button>
+        </div>
       </form>
 
       <div className="text-center mt-4 text-sm">

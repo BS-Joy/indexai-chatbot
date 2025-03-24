@@ -40,7 +40,7 @@ export default function SignUpForm() {
         <p className="text-gray-600">Choose your mailbox to get started</p>
       </div>
 
-      <div className="flex gap-10 py-6">
+      <div className="flex gap-10 pb-16 pt-10">
         <Image src={gmail} className="size-[90px] w-24" alt="gmail logo" />
         <Image src={outlook} className="size-[90px] w-24" alt="outlook logo" />
       </div>
@@ -56,12 +56,14 @@ export default function SignUpForm() {
           handleChange={handleChange}
         />
 
-        <Button
-          type="submit"
-          className="w-full rounded-full bg-gradient-to-r from-[#00ACDA] via-blue-400 to-[#43D4FB] hover:opacity-90 text-white"
-        >
-          Join
-        </Button>
+        <div className="flex justify-center">
+          <Button
+            type="submit"
+            className="py-6 mt-6 px-24 w-[80%] rounded-full bg-gradient-to-r from-[#00ACDA] via-blue-400 to-[#43D4FB] hover:opacity-90 text-white"
+          >
+            Join
+          </Button>
+        </div>
       </form>
 
       <div className="text-center mt-4 text-sm">
