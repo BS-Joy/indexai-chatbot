@@ -22,7 +22,7 @@ export function KeywordSelector() {
       <DropdownMenuTrigger asChild>
         <Button
           variant="outline"
-          className="ring-0 focus-within:ring-0 focus-visible:ring-0"
+          className="ring-0 focus-within:ring-0 focus-visible:ring-0 cursor-pointer"
         >
           Select Keyworkds
           <FaAngleDown />

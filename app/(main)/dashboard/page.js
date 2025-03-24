@@ -15,8 +15,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { KeywordSelector } from "./components/KeywordSelector";
-import FilterComponents from "./components/FilterComponents";
+import FilterMails from "./components/FilterMails";
 
 export default async function HomePage() {
   const emails = [
@@ -117,11 +116,11 @@ export default async function HomePage() {
 
       {/* mails */}
       <div className="mt-10">
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row justify-between">
           <h2 className="text-[#2D3748] text-2xl font-semibold mb-5">
             Your Top Recipients
           </h2>
-          <FilterComponents />
+          <FilterMails />
         </div>
 
         {/* emails table */}
@@ -205,7 +204,7 @@ export default async function HomePage() {
 
           {/* Card layout with scrollbar for smaller screens */}
           <div className="block md:hidden p-4">
-            <div className="max-h-[40vh] overflow-y-auto space-y-4">
+            <div className="max-h-[40vh] overflow-y-auto space-y-4 messages">
               {emails.map((email, index) => (
                 <div
                   key={index}

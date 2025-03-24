@@ -228,7 +228,7 @@ export default function Sidebar({ children, user }) {
             </Sheet>
           </div>
         </header>
-        <section className="p-2  pb-0 md:p-10 md:pb-0">
+        <section className="p-2 pb-0 md:p-10 md:pb-0">
           {pathName === "/chat" && <ChatHeader />}
           {children}
         </section>
