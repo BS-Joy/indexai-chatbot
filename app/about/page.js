@@ -4,7 +4,7 @@ import SecurityCard from "./components/SecurityCard";
 
 export default function page() {
   return (
-    <div className="security-page min-h-screen  flex items-center justify-center py-20">
+    <div className="security-page min-h-screen flex items-center justify-center pt-4 md:py-20">
       <div className="container max-w-4xl px-6 mx-auto">
         <div
           className="text-center mb-12"
