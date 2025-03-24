@@ -41,7 +41,14 @@ const navLinks = [
   },
 ];
 
-const publicRoutes = ["/", "/about", "/connect", "/security", "/team"];
+const publicRoutes = [
+  "/",
+  "/about",
+  "/connect",
+  "/security",
+  "/team",
+  "/login",
+];
 
 export default function Sidebar({ children, user }) {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,6 +1,13 @@
 import { NextResponse } from "next/server";
 
-const publicRoutes = ["/", "/about", "/connect", "/security", "/team"];
+const publicRoutes = [
+  "/",
+  "/about",
+  "/connect",
+  "/security",
+  "/team",
+  "/login",
+];
 const protectedRoute = "/dashboard"; // Example protected route
 
 export async function middleware(request) {

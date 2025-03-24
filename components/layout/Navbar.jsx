@@ -14,6 +14,7 @@ const publicRoutes = [
   "/pricing",
   "/about",
   "/connect",
+  "/login",
   // "/security",
   // "/team",
 ];

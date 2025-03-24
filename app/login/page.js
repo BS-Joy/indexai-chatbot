@@ -1,7 +1,7 @@
-import SignUpForm from "./components/SignupForm";
-import TypeWritter from "./components/TypeWritter";
+import LoginForm from "./components/LoginForm";
+import LoginTypeWritter from "./components/LoginTypeWritter";
 
-export default function conntectPage() {
+export default function loginPage() {
   return (
     <div className="flex h-[89.5vh] relative overflow-hidden">
       {/* Left side with gradient and glass effect - hidden on mobile */}
@@ -17,13 +17,13 @@ export default function conntectPage() {
 
         {/* Content */}
         <div className="relative z-10 text-center text-white text-3xl font-bold  p-8">
-          <TypeWritter />
+          <LoginTypeWritter />
         </div>
       </div>
 
       {/* Right side with form */}
       <div className="w-full md:w-1/2 flex items-center justify-center p-6 ">
-        <SignUpForm />
+        <LoginForm />
       </div>
     </div>
   );
