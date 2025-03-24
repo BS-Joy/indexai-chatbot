@@ -108,7 +108,7 @@ export default function Sidebar({ children, user }) {
 
           {/* sidebar footer */}
           <div className="space-y-4">
-            <Button
+            {/* <Button
               type="submit"
               className="flex w-full justify-center items-center gap-2 text-sm cursor-pointer bg-[#01A846] hover:bg-[#01A846]/80 py-8 rounded text-white"
               // variant="ghost"
@@ -118,12 +118,12 @@ export default function Sidebar({ children, user }) {
               <span>
                 Refer a Friend, <br /> get one month free!
               </span>
-            </Button>
+            </Button> */}
             <Button
               type="submit"
               className="flex items-center gap-2 text-sm cursor-pointer"
               variant="ghost"
-              onClick={handleLogout}
+              onClick={() => console.log("to profile page")}
             >
               <FaUserCircle className="size-6" />
               <span>Profile</span>
@@ -185,9 +185,11 @@ export default function Sidebar({ children, user }) {
                       ))}
                     </nav>
                   </div>
+
+                  {/* sidebar footer */}
                   <div className="space-y-4">
                     <div className="flex flex-col justify-start items-start gap-2 text-sm text-gray-500 dark:text-gray-400">
-                      <Button
+                      {/* <Button
                         type="submit"
                         className="flex w-full justify-center items-center gap-2 text-sm cursor-pointer bg-[#01A846] hover:bg-[#01A846]/80 py-8 rounded text-white"
                         // variant="ghost"
@@ -197,9 +199,9 @@ export default function Sidebar({ children, user }) {
                         <span>
                           Refer a Friend, <br /> get one month free!
                         </span>
-                      </Button>
+                      </Button> */}
                       <Button
-                        onClick={handleLogout}
+                        onClick={() => console.log("to profile page")}
                         className="flex items-center gap-2 text-sm cursor-pointer"
                         variant="ghost"
                       >

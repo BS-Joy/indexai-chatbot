@@ -5,11 +5,13 @@ import { Separator } from "@/components/ui/separator";
 import { Send, Sparkles } from "lucide-react";
 import { IoSend } from "react-icons/io5";
 import { RiSparkling2Line } from "react-icons/ri";
+import ChatCard from "./ChatCard";
+import ChatInputField from "./ChatInputField";
 
 export default function ChatSection() {
   const show = false;
   return (
-    <section className="flex-1 p-6 lg:p-8 bg-[#F1F1F1] max-h-[81vh] h-screen rounded-[20px]">
+    <section className="flex-1 p-6 lg:p-8  max-h-[81vh] h-screen rounded-[20px]">
       <div className="mx-auto h-full">
         {/* Logo and Welcome */}
         {show ? (
@@ -48,60 +50,16 @@ export default function ChatSection() {
         ) : (
           // Message Blocks
           <div className="flex flex-col justify-between h-full">
-            <div className="space-y-6 overflow-auto flex flex-col">
+            <div className="space-y-6 overflow-auto flex flex-col messages">
               {/* user message */}
-              <div className="flex justify-end">
-                <Card className="bg-[#E6E6E6] p-4 w-fit shadow-none border-none">
-                  <p className="text-[#101010]">
-                    The Bible's main message can be understood as God's plan for
-                    redemption and reconciliation with humanity. At its core, it
-                    tells the story of
-                  </p>
-                </Card>
-              </div>
+              <ChatCard senderUser={true} />
 
-              {/* bot message */}
-              <Card className="bg-transparent p-4 shadow-none border-none">
-                <p className="text-[#434343]">
-                  The Bible's main message can be understood as God's plan for
-                  redemption and reconciliation with humanity. At its core, it
-                  tells the story of The Bible's main message can be understood
-                  as God's plan for redemption and reconciliation with humanity.
-                  At its core, it tells the story of The Bible's main message
-                  can be understood as God's plan for redemption and
-                  reconciliation with humanity.
-                </p>
-              </Card>
-
-              {/* user message */}
-              <div className="flex justify-end">
-                <Card className="bg-[#E6E6E6] p-4 w-fit shadow-none border-none">
-                  <p className="text-[#101010]">
-                    The Bible's main message can be understood as God's plan for
-                    redemption and reconciliation with humanity. At its core, it
-                    tells the story of
-                  </p>
-                </Card>
-              </div>
-
-              {/* bot message */}
-              <Card className="bg-transparent p-4 shadow-none border-none">
-                <p className="text-gray-700">
-                  The Bible's main message can be understood as God's plan for
-                  redemption and reconciliation with humanity. At its core, it
-                  tells the story of The Bible's main message can be understood
-                  as God's plan for redemption and reconciliation with humanity.
-                  At its core, it tells the story of The Bible's main message
-                  can be understood as God's plan for redemption and
-                  reconciliation with humanity. At its core, it tells the story
-                  of The Bible's main message can be understood as God's plan
-                  for redemption and reconciliation
-                </p>
-              </Card>
+              {/* chat message */}
+              <ChatCard />
             </div>
 
             {/* Question Input */}
-            <div className="relative">
+            {/* <div className="relative">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <RiSparkling2Line size={18} className="text-[#101010]" />
               </div>
@@ -115,7 +73,8 @@ export default function ChatSection() {
               >
                 <IoSend size={20} />
               </Button>
-            </div>
+            </div> */}
+            <ChatInputField />
           </div>
         )}
 
@@ -123,4 +82,40 @@ export default function ChatSection() {
       </div>
     </section>
   );
+}
+
+{
+  /* user message */
+}
+{
+  /* <div className="flex justify-end">
+                <Card className="bg-[#E6E6E6] p-4 w-fit shadow-none border-none">
+                  <p className="text-[#101010]">
+                    The Bible's main message can be understood as God's plan for
+                    redemption and reconciliation with humanity. At its core, it
+                    tells the story of
+                  </p>
+                </Card>
+              </div> */
+}
+
+{
+  /* bot message */
+}
+{
+  /* <Card className="bg-transparent p-4 shadow-none border-none"> */
+}
+{
+  /* <p className="text-[#434343]">
+                The Bible's main message can be understood as God's plan for
+                redemption and reconciliation with humanity. At its core, it
+                tells the story of The Bible's main message can be understood as
+                God's plan for redemption and reconciliation with humanity. At
+                its core, it tells the story of The Bible's main message can be
+                understood as God's plan for redemption and reconciliation with
+                humanity.
+              </p> */
+}
+{
+  /* </Card> */
 }
