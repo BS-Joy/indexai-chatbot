@@ -11,7 +11,7 @@ import ChatInputField from "./ChatInputField";
 export default function ChatSection() {
   const show = false;
   return (
-    <section className="flex-1 p-6 lg:p-8  max-h-[81vh] h-screen rounded-[20px]">
+    <section className="flex-1 p-1 lg:p-8  max-h-[81vh] h-screen rounded-[20px]">
       <div className="mx-auto h-full">
         {/* Logo and Welcome */}
         {show ? (

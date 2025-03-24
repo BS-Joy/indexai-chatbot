@@ -22,7 +22,7 @@ export default function ChatCard({
   className,
 }) {
   return (
-    <Card className={cn("w-full gap-2 py-5", className)}>
+    <Card className={cn("w-full gap-2 py-5 shadow-none", className)}>
       <CardContent className="">
         <div className="flex flex-col space-y-4">
           {/* Header with user info and date */}

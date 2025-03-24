@@ -20,6 +20,8 @@ import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 import { IoMdShareAlt } from "react-icons/io";
+import logoImage from "@/public/logo.png";
+import Image from "next/image";
 
 const navLinks = [
   {
@@ -143,15 +145,18 @@ export default function Sidebar({ children, user }) {
 
       <div className="flex-1">
         {/* mobile sidebar */}
-        <header className="sticky top-0 z-10 border-b bg-white px-4 py-3 dark:border-gray-800 dark:bg-gray-900 lg:hidden">
+        <header className="sticky top-0 z-10 border-b bg-white px-2 md:px-4 py-3 dark:border-gray-800 dark:bg-gray-900 lg:hidden">
           <div className="flex items-center justify-between">
             <Link
               href="#"
               className="flex items-center gap-2 font-bold"
               prefetch={false}
             >
-              <MountainIcon className="h-6 w-6" />
-              <span className="text-lg">Acme Inc</span>
+              <Image
+                src={logoImage}
+                alt="Index Ai Logo"
+                className="si w-28 lg:w-fit"
+              />
             </Link>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
@@ -223,7 +228,7 @@ export default function Sidebar({ children, user }) {
             </Sheet>
           </div>
         </header>
-        <section className="p-10 pb-0">
+        <section className="p-2  pb-0 md:p-10 md:pb-0">
           {pathName === "/chat" && <ChatHeader />}
           {children}
         </section>

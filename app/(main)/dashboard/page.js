@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import SearchBar from "./components/SearchBar";
-import { RiInbox2Line, RiSparkling2Line } from "react-icons/ri";
-import EmailsContainer from "./components/EmailsContainer";
+import { RiSparkling2Line } from "react-icons/ri";
 import { EmailPagination } from "./components/EmailPagination";
 import { FaCheckCircle } from "react-icons/fa";
 import Image from "next/image";
@@ -17,6 +16,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { KeywordSelector } from "./components/KeywordSelector";
+import FilterComponents from "./components/FilterComponents";
 
 export default async function HomePage() {
   const emails = [
@@ -95,7 +95,7 @@ export default async function HomePage() {
       </p>
 
       {/* statics */}
-      <div className="flex mt-6 gap-16">
+      <div className="flex flex-col md:flex-row mt-6 gap-16 w-full">
         {/* unread mails */}
         <div className="flex gap-3">
           <Image src={gmail} alt="gmail logo" className="size-11" />
@@ -121,89 +121,131 @@ export default async function HomePage() {
           <h2 className="text-[#2D3748] text-2xl font-semibold mb-5">
             Your Top Recipients
           </h2>
-          <KeywordSelector />
+          <FilterComponents />
         </div>
 
         {/* emails table */}
-        <div className="rounded-2xl border overflow-hidden">
-          <Table className="">
-            <TableHeader className="bg-gray-200 p-6">
-              <TableRow>
-                <TableHead className="font-medium px-6 py-4">
-                  Provider
-                </TableHead>
-                <TableHead className="font-medium">Name</TableHead>
-                <TableHead className="font-medium">Subject</TableHead>
-                <TableHead className="font-medium">Date</TableHead>
-                <TableHead className="font-medium">
-                  Latest Message Preview
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {emails.map((email, index) => (
-                <TableRow key={index} className=" border-gray-200">
-                  <TableCell className="py-3 pl-5">
-                    <div
-                      className={`flex items-center ${
-                        index === emails?.length - 1 ? "" : "border-b pb-3"
-                      } `}
-                    >
-                      <Image
-                        src={gmail}
-                        width={24}
-                        height={24}
-                        alt="Gmail"
-                        className="mr-2"
-                      />
-                      {email.provider}
-                    </div>
-                  </TableCell>
-                  <TableCell className="py-3">
-                    <div
-                      className={` ${
-                        index === emails?.length - 1 ? "" : "border-b pb-4"
-                      }`}
-                    >
-                      {email.name}
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <div
-                      className={` ${
-                        index === emails?.length - 1 ? "" : "border-b pb-4"
-                      }`}
-                    >
-                      {email.subject}
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <div
-                      className={` ${
-                        index === emails?.length - 1 ? "" : "border-b pb-4"
-                      }`}
-                    >
-                      {email.date}
-                    </div>
-                  </TableCell>
-                  <TableCell className="pr-5">
-                    <div
-                      className={` ${
-                        index === emails?.length - 1 ? "" : "border-b pb-4"
-                      }`}
-                    >
-                      {email.preview}
-                    </div>
-                  </TableCell>
+        <div className="rounded-2xl border">
+          {/* Table for larger screens */}
+          <div className="hidden md:block overflow-x-auto">
+            <Table className="w-full">
+              <TableHeader className="bg-gray-200">
+                <TableRow>
+                  <TableHead className="font-medium px-6 py-4">
+                    Provider
+                  </TableHead>
+                  <TableHead className="font-medium">Name</TableHead>
+                  <TableHead className="font-medium">Subject</TableHead>
+                  <TableHead className="font-medium">Date</TableHead>
+                  <TableHead className="font-medium">
+                    Latest Message Preview
+                  </TableHead>
                 </TableRow>
+              </TableHeader>
+              <TableBody>
+                {emails.map((email, index) => (
+                  <TableRow key={index} className="border-gray-200">
+                    <TableCell className="py-3 pl-5">
+                      <div
+                        className={`flex items-center ${
+                          index === emails?.length - 1 ? "" : "border-b pb-3"
+                        }`}
+                      >
+                        <Image
+                          src={gmail}
+                          width={24}
+                          height={24}
+                          alt="Gmail"
+                          className="mr-2"
+                        />
+                        {email.provider}
+                      </div>
+                    </TableCell>
+                    <TableCell className="py-3">
+                      <div
+                        className={`${
+                          index === emails?.length - 1 ? "" : "border-b pb-4"
+                        }`}
+                      >
+                        {email.name}
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div
+                        className={`${
+                          index === emails?.length - 1 ? "" : "border-b pb-4"
+                        }`}
+                      >
+                        {email.subject}
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div
+                        className={`${
+                          index === emails?.length - 1 ? "" : "border-b pb-4"
+                        }`}
+                      >
+                        {email.date}
+                      </div>
+                    </TableCell>
+                    <TableCell className="pr-5">
+                      <div
+                        className={`${
+                          index === emails?.length - 1 ? "" : "border-b pb-4"
+                        }`}
+                      >
+                        {email.preview}
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+
+          {/* Card layout with scrollbar for smaller screens */}
+          <div className="block md:hidden p-4">
+            <div className="max-h-[40vh] overflow-y-auto space-y-4">
+              {emails.map((email, index) => (
+                <div
+                  key={index}
+                  className="border rounded-lg p-4 bg-white shadow-sm"
+                >
+                  <div className="flex items-center mb-2">
+                    <Image
+                      src={gmail}
+                      width={24}
+                      height={24}
+                      alt="Gmail"
+                      className="mr-2"
+                    />
+                    <span className="font-medium">{email.provider}</span>
+                  </div>
+                  <div className="space-y-2">
+                    <p>
+                      <span className="font-semibold">Name:</span> {email.name}
+                    </p>
+                    <p>
+                      <span className="font-semibold">Subject:</span>{" "}
+                      {email.subject}
+                    </p>
+                    <p>
+                      <span className="font-semibold">Date:</span> {email.date}
+                    </p>
+                    <p>
+                      <span className="font-semibold">Preview:</span>{" "}
+                      {email.preview}
+                    </p>
+                  </div>
+                </div>
               ))}
-            </TableBody>
-          </Table>
+            </div>
+          </div>
         </div>
 
         {/* paginations */}
-        <div className="flex justify-between mt-3 items-center">
-          <button className="link-btn px-6 py-2 rounded-full flex items-center gap-2">
+        <div className="flex flex-col md:flex-row items-start justify-between mt-3 md:items-center">
+          <button className="link-btn px-6 py-2 rounded-full hidden md:flex items-center gap-2">
             <RiSparkling2Line />
             <span>Ask Ai For Help</span>
           </button>
