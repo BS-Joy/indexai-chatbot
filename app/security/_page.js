@@ -17,7 +17,7 @@ export default function securityPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Security isn't a feature. It's a priority
+            Security isn&apos;t a feature. It&apos;s a priority
           </h1>
           <p
             className="text-lg text-gray-600 max-w-3xl mx-auto"
@@ -26,8 +26,8 @@ export default function securityPage() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             Studies show that almost 70% of workers use OpenAI for everyday
-            work, potentially feeding models with sensitive information. That's
-            where we come in.
+            work, potentially feeding models with sensitive information.
+            That&apos;s where we come in.
           </p>
         </div>
 

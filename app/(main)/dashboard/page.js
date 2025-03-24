@@ -91,7 +91,7 @@ export default async function HomePage() {
       <h1 className="text-[18px] mb-3">Hi John,</h1>
       <p className="inline-flex items-center gap-2">
         <FaCheckCircle color="#68D391" />
-        Here's the latest. Let me know how I can help!
+        Here&apos;s the latest. Let me know how I can help!
       </p>
 
       {/* statics */}
