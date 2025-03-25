@@ -16,7 +16,7 @@ export default function BackgroundWrapper({ children }) {
     //   style={isHomePage ? { backgroundImage: `url(${bgImage.src})` } : {}}
     // >
     <main
-      className={`min-h-screen bg-[#e9e9e9] bg-no-repeat bg-cover"`}
+      className={`min-h-screen bg-[#e9e9e9] bg-cover "`}
       style={{ backgroundImage: `url(${bgImage.src})` }}
     >
       {children}
