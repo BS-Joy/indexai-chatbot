@@ -41,12 +41,11 @@ export default function page() {
               <Image
                 src={encryption}
                 alt="encryption image"
-                className="h-[50px] w-[100px]"
+                className="size-[76px]"
               />
             }
             title="Bank-Grade Encryption"
             description="All data is encrypted both in transit (TLS 1.2+) and at rest (AES-256) to ensure end-to-end security. We never store or process your data beyond what's required to deliver insights. Your information remains yours and yours alone—we can't see it, share it, or use it for any other purpose."
-            delay={0.6}
           />
 
           <SecurityCard
@@ -54,12 +53,11 @@ export default function page() {
               <Image
                 src={authentication}
                 alt="authentication image"
-                className="h-[50px] w-[100px]"
+                className="size-[76px]"
               />
             }
             title="Secure Authentication"
             description="Login is protected by OAuth-based authentication, meaning we never see or store your passwords. We also enforce two-factor authentication (2FA) to prevent unauthorized access. You decide what the AI can access, and you can revoke permissions anytime. Our integrations follow the least privilege principle, ensuring minimal access to only the necessary data."
-            delay={0.8}
           />
 
           <SecurityCard
@@ -67,12 +65,11 @@ export default function page() {
               <Image
                 src={compliance}
                 alt="compliance image"
-                className="h-[50px] w-[100px]"
+                className="size-[76px]"
               />
             }
             title="Enterprise-Grade Compliance"
             description="We adhere to industry-leading security and privacy standards, including GDPR, SOC 2, and ISO 27001 (as applicable), so your organization stays compliant. Your trust is our top priority. With InboxAI, you can confidently automate your workflow while knowing your data is safe, private, and under your control."
-            delay={1.0}
           />
         </div>
       </div>

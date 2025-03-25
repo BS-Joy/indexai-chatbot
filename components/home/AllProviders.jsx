@@ -13,7 +13,7 @@ export default function AllProviders() {
       {/* Marquee for smaller screens (visible below md, hidden on md and above) */}
       <div className="block md:hidden mt-10">
         <Marquee play={true}>
-          <div className="flex justify-center gap-8 mt-6">
+          <div className="flex justify-center gap-8 mt-6 mr-8 md:mr-0">
             <ProviderIcon image={outlook} title={"outlook"} />
             <ProviderIcon image={gmail} title={"gmail"} />
             <ProviderIcon image={slack} title={"slack"} />
