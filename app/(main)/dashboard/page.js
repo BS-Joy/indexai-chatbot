@@ -85,7 +85,7 @@ export default async function HomePage() {
     //     <EmailPagination />
     //   </div>
     // </section>
-    <section className="flex flex-col w-full">
+    <section className="flex flex-col w-full p-2 md:p-0">
       {/* welcome messages */}
       <h1 className="text-[18px] mb-3">Hi John,</h1>
       <p className="inline-flex items-center gap-2">
@@ -112,6 +112,11 @@ export default async function HomePage() {
             <h4 className="text-[#2D3748]">10</h4>
           </div>
         </div>
+
+        {/* search bar */}
+        {/* <div className="hidden md:flex">
+          <SearchBar />
+        </div> */}
       </div>
 
       {/* mails */}
@@ -120,6 +125,9 @@ export default async function HomePage() {
           <h2 className="text-[#2D3748] text-2xl font-semibold mb-5">
             Your Top Recipients
           </h2>
+          {/* <div className="block md:hidden">
+            <SearchBar />
+          </div> */}
           <FilterMails />
         </div>
 
@@ -203,7 +211,7 @@ export default async function HomePage() {
           </div>
 
           {/* Card layout with scrollbar for smaller screens */}
-          <div className="block md:hidden p-4">
+          <div className="block md:hidden p-2">
             <div className="max-h-[40vh] overflow-y-auto space-y-4 messages">
               {emails.map((email, index) => (
                 <div
@@ -243,7 +251,7 @@ export default async function HomePage() {
         </div>
 
         {/* paginations */}
-        <div className="flex flex-col md:flex-row items-start justify-between mt-3 md:items-center">
+        <div className="flex flex-col md:flex-row items-end justify-between mt-3 md:items-center">
           <button className="link-btn px-6 py-2 rounded-full hidden md:flex items-center gap-2">
             <RiSparkling2Line />
             <span>Ask Ai For Help</span>

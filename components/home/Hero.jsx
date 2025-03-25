@@ -16,8 +16,8 @@ export default function Hero() {
 
           {/* title */}
           <div className="relative">
-            <h1 className="lg:w-[800px] text-5xl md:text-6xl sm:leading-24 font-bold">
-              <span className="text-5xl md:text-[70px]">
+            <h1 className="lg:w-[800px] text-3xl md:text-6xl sm:leading-24 font-bold">
+              <span className="text-4xl md:text-[70px]">
                 Stop Drowning in Email <br />
               </span>{" "}
               Meet Your <span className="text-[#00ACDA]">New Assistant</span>{" "}

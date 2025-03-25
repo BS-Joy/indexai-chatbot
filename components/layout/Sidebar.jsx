@@ -57,7 +57,7 @@ export default function Sidebar({ children, user }) {
   const router = useRouter();
 
   const handleLogout = async () => {
-    await logoutAction();
+    // await logoutAction();
 
     router.push("/");
   };
