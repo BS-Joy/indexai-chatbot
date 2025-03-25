@@ -8,24 +8,51 @@ import { RiSparkling2Line } from "react-icons/ri";
 // Array of question-response pairs
 const conversationPairs = [
   {
-    question: "Hello, can you help me with a coding question?",
-    response:
-      "Of course! I'd be happy to help with your coding question. What would you like to know?",
+    question: "What meetings do I have this week?",
+    answer:
+      "I’ll scan your emails and list all upcoming meetings scheduled for this week!",
   },
   {
-    question: "How do I create a responsive layout with Tailwind CSS?",
-    response:
-      "With Tailwind, you can use responsive prefixes like sm:, md:, lg:, and xl: before utility classes to make your layout adapt to different screen sizes.",
+    question: "Are there any interviews on my calendar?",
+    answer:
+      "Let me check your emails—I'll find any interview invites for this week.",
   },
   {
-    question: "What's the difference between useState and useRef in React?",
-    response:
-      "useState triggers re-renders when the state changes, while useRef persists values between renders without causing re-renders. useRef is ideal for DOM references.",
+    question: "Can you summarize my latest emails?",
+    answer: "Sure, I’ll give you a quick rundown of your most recent emails.",
   },
   {
-    question: "Can you explain async/await in JavaScript?",
-    response:
-      "Async/await is syntactic sugar for Promises. The async keyword defines a function that returns a Promise, and await pauses execution until a Promise resolves, making asynchronous code look synchronous.",
+    question: "Any urgent emails I should know about?",
+    answer:
+      "I’ll look for emails marked as urgent or important and let you know!",
+  },
+  {
+    question: "What’s my next deadline?",
+    answer:
+      "I’ll dig through your emails to find any upcoming deadlines and tell you the closest one.",
+  },
+  {
+    question: "Who emailed me about the project update?",
+    answer:
+      "I’ll search your inbox and tell you who sent project-related updates.",
+  },
+  {
+    question: "Do I have any unread emails from my boss?",
+    answer:
+      "I’ll check for unread emails from your boss and list them for you.",
+  },
+  {
+    question: "When’s my next team sync?",
+    answer: "I’ll find your next team sync meeting from your email invites!",
+  },
+  {
+    question: "Any emails about training sessions?",
+    answer: "I’ll look for training-related emails and give you the details.",
+  },
+  {
+    question: "What subscriptions am I signed up for?",
+    answer:
+      "I’ll scan your emails for subscription confirmations and list them out.",
   },
 ];
 
@@ -36,7 +63,7 @@ export default function TypeWritter() {
 
   // Get current question and response based on the pair index
   const currentPair = conversationPairs[pairIndex];
-  const { question, response } = currentPair;
+  const { question, answer: response } = currentPair;
 
   useEffect(() => {
     let inputTimer;

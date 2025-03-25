@@ -3,7 +3,9 @@
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Paperclip, Send, CheckCircle, FileText, X } from "lucide-react";
+import { Paperclip, Send, X } from "lucide-react";
+import { FaCheckCircle } from "react-icons/fa";
+import { IoDocumentOutline } from "react-icons/io5";
 
 export default function ChatInputField() {
   const [message, setMessage] = useState("");
@@ -71,16 +73,53 @@ export default function ChatInputField() {
   };
 
   return (
-    <div className="w-full mx-auto">
-      <div className="relative flex items-start gap-2">
-        {/* Message input area */}
+    <div className="w-full mx-auto flex flex-col mt-6">
+      {/* Attachments section */}
+      {(attachments.length > 0 || isUploading) && (
+        <div className="order-1 md:order-2 mb-3 md:mt-3 md:mb-0 flex items-center gap-1 md:gap-3">
+          <p className="text-sm font-medium mb-2 md:mb-0 hidden md:inline-flex">
+            Attachments:
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {isUploading && (
+              <div className="flex items-center gap-2 border rounded-md px-3 py-2 bg-background text-sm">
+                <p className="animate-pulse">Uploading...</p>
+              </div>
+            )}
+
+            {attachments.map((attachment) => (
+              <div
+                key={attachment.id}
+                className="flex items-center gap-2 border border-blue-500 rounded-md px-3 py-2 bg-background text-sm group"
+              >
+                <span className="bg-[#D1E9FF] rounded-full p-1">
+                  <IoDocumentOutline className="h-4 w-4 text-blue-500" />
+                </span>
+                <span className="max-w-[200px] truncate">
+                  {attachment.name}
+                </span>
+                <FaCheckCircle className="h-4 w-4 text-blue-500" />
+                <button
+                  onClick={() => removeAttachment(attachment.id)}
+                  className="opacity-0 group-hover:opacity-100 transition-opacity ml-1"
+                >
+                  <X className="h-4 w-4 text-muted-foreground hover:text-foreground" />
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Message input area */}
+      <div className="order-2 md:order-1 relative flex items-start gap-2">
         <div className="flex-1 relative">
           <Textarea
             placeholder="Write message here"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="min-h-[128px] resize-none pr-4 py-3 rounded-xl border bg-background focus-visible:ring-0"
+            className="h-[128px] resize-none pr-4 py-3 rounded-xl border bg-background focus-visible:ring-0"
           />
         </div>
 
@@ -115,39 +154,6 @@ export default function ChatInputField() {
           multiple
         />
       </div>
-
-      {/* Attachments section */}
-      {(attachments.length > 0 || isUploading) && (
-        <div className="mt-3 flex flex-col md:flex-row items-center gap-1 md:gap-3">
-          <p className="text-sm font-medium mb-2">Attachments:</p>
-          <div className="flex flex-wrap gap-2">
-            {isUploading && (
-              <div className="flex items-center gap-2 border rounded-md px-3 py-2 bg-background text-sm">
-                <p className="animate-pulse">Uploading...</p>
-              </div>
-            )}
-
-            {attachments.map((attachment) => (
-              <div
-                key={attachment.id}
-                className="flex items-center gap-2 border rounded-md px-3 py-2 bg-background text-sm group"
-              >
-                <FileText className="h-4 w-4 text-blue-500" />
-                <span className="max-w-[200px] truncate">
-                  {attachment.name}
-                </span>
-                <CheckCircle className="h-4 w-4 text-blue-500" />
-                <button
-                  onClick={() => removeAttachment(attachment.id)}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity ml-1"
-                >
-                  <X className="h-4 w-4 text-muted-foreground hover:text-foreground" />
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
