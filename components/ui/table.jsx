@@ -8,14 +8,11 @@ function Table({ className, ...props }) {
   return (
     <div
       data-slot="table-container"
-      className="relative w-full overflow-x-auto rounded-2xl"
+      className="relative w-full overflow-x-auto rounded-lg"
     >
       <table
         data-slot="table"
-        className={cn(
-          "w-full caption-bottom text-sm overflow-x-auto",
-          className
-        )}
+        className={cn("w-full caption-bottom text-sm", className)}
         {...props}
       />
     </div>
@@ -60,7 +57,7 @@ function TableRow({ className, ...props }) {
     <tr
       data-slot="table-row"
       className={cn(
-        "hover:bg-muted/50 data-[state=selected]:bg-muted  transition-colors",
+        "hover:bg-muted/50 data-[state=selected]:bg-muted transition-colors",
         className
       )}
       {...props}
