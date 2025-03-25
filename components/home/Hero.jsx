@@ -89,7 +89,7 @@ export default function Hero() {
 
             <Link
               className="block w-full rounded-full px-12 py-3 text-sm font-medium  focus:outline-hidden link-btn"
-              href="/dashboard"
+              href="/login"
             >
               Login
             </Link>
