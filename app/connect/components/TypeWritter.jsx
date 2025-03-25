@@ -63,7 +63,7 @@ export default function TypeWritter() {
   }, [cycle, question, response]); // Re-run effect when cycle changes
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 ">
+    <section className="flex min-h-screen flex-col items-center justify-center p-4 ">
       <div className="w-full max-w-2xl mx-auto space-y-8">
         {/* Response container */}
         {showResponse && (
@@ -89,7 +89,7 @@ export default function TypeWritter() {
 
         {/* Question input */}
         <div className="relative">
-          <div className="flex w-full items-center space-x-2">
+          <div className="flex w-[full] items-center space-x-2">
             <div className="relative flex-1">
               <div className="min-h-10 w-[600px] text-start rounded-md border shadow-sm px-3 py-2 text-sm ring-offset-background">
                 <TypeWriterEffect
@@ -106,6 +106,6 @@ export default function TypeWritter() {
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

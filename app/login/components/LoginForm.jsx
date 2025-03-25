@@ -35,12 +35,12 @@ export default function SignUpForm() {
 
   return (
     <div className="w-full max-w-md mx-auto">
-      <div className="text-start mb-6">
+      <div className="text-center md:text-start mb-6">
         <h1 className="text-2xl font-bold mb-2">Login</h1>
         <p className="text-gray-600">Choose your mailbox to get started</p>
       </div>
 
-      <div className="flex gap-10 pb-16 pt-10">
+      <div className="flex justify-center md:justify-start gap-10 pb-16 pt-10">
         <Image src={gmail} className="size-[90px] w-24" alt="gmail logo" />
         <Image src={outlook} className="size-[90px] w-24" alt="outlook logo" />
       </div>
