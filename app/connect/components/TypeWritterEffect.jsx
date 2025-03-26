@@ -41,7 +41,7 @@ export default function TypeWriterEffect({
     <div className={`relative ${className}`}>
       <span className="whitespace-pre-wrap text-base">{currentText}</span>
       <span
-        className={`absolute inline-block w-[2px] h-[1.2em] bg-white ml-[1px] ${
+        className={`absolute top-1 inline-block w-[2px] h-[1.2em] bg-white ml-[1px] ${
           cursorVisible ? "opacity-100" : "opacity-0"
         } transition-opacity duration-100`}
         style={{

@@ -95,7 +95,7 @@ export default function TypeWritter() {
         {/* Response container */}
         {showResponse && (
           <div className="rounded-lg border shadow-sm p-6 min-h-40 animate-fadeIn">
-            <div className="w-[600px] text-start">
+            <div className="w-[600px] text-sm text-start">
               <TypeWriterEffect
                 text={response}
                 delay={100}
