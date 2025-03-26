@@ -17,42 +17,39 @@ export default async function HomePage() {
       from: "Jone Doe",
       subject: "Meeting Update",
       date: "Mon, 24 Mar 2025",
-      preview: "Let's reschedule our meeting to 3 PM.",
+      body: "Let's reschedule our meeting to 3 PM.",
+      snippet: "Let's reschedule our meeting to 3 PM.",
     },
     {
       provider: "Gmail",
       from: "Jone Doe",
       subject: "Meeting Update",
       date: "Mon, 24 Mar 2025",
-      preview: "Let's reschedule our meeting to 3 PM.",
+      body: "Let's reschedule our meeting to 3 PM.",
+      snippet: "Let's reschedule our meeting to 3 PM.",
     },
     {
       provider: "Gmail",
       from: "Jone Doe",
       subject: "Meeting Update",
       date: "Mon, 24 Mar 2025",
-      preview: "Let's reschedule our meeting to 3 PM.",
+      body: "Let's reschedule our meeting to 3 PM.",
+      snippet: "Let's reschedule our meeting to 3 PM.",
     },
     {
       provider: "Gmail",
-      from: "Jone Doe",
-      subject: "Meeting Update",
-      date: "Mon, 24 Mar 2025",
-      preview: "Let's reschedule our meeting to 3 PM.",
-    },
-    {
-      provider: "Gmail",
-      from: "Jone Doe",
-      subject: "Meeting Update",
-      date: "Mon, 24 Mar 2025",
-      preview: "Let's reschedule our meeting to 3 PM.",
-    },
-    {
-      provider: "Gmail",
-      from: "Jone Doe",
-      subject: "Meeting Update",
-      date: "Mon, 24 Mar 2025",
-      preview: "Let's reschedule our meeting to 3 PM.",
+      id: "195c6d237466ec71",
+      threadId: "195c6d237466ec71",
+      subject: "Security alert",
+      from: "Google <no-reply@accounts.google.com>",
+      to: "alphabytes.gpt@gmail.com",
+      date: "Mon, 24 Mar 2025 06:23:39 GMT",
+      snippet:
+        "Email-Ai-Assistant was granted access to your Google Account alphabytes.gpt@gmail.com If you did not grant access, you should check this activity and secure your account. Check activity You can also",
+      body: "[image: Google]\r\nEmail-Ai-Assistant was granted access to your Google account\r\n\r\n\r\nalphabytes.gpt@gmail.com\r\n\r\nIf you did not grant access, you should check this activity and secure your\r\naccount.\r\nCheck activity\r\n<https://accounts.google.com/AccountChooser?Email=alphabytes.gpt@gmail.com&continue=https://myaccount.google.com/alert/nt/1742797419000?rfn%3D127%26rfnc%3D1%26eid%3D-2233602989110173696%26et%3D0>\r\nYou can also see security activity at\r\nhttps://myaccount.google.com/notifications\r\nYou received this email to let you know about important changes to your\r\nGoogle Account and services.\r\n© 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA\r\n",
+      isRead: false,
+      importanceScore: 90,
+      isImportant: true,
     },
 
     {
@@ -70,21 +67,6 @@ export default async function HomePage() {
     },
   ];
   return (
-    // <section className="bg-[#F1F1F1] rounded-[15px] lg:rounded-[20px] p-6 lg:p-8 flex flex-col h-[650px] lg:max-h-[740px] lg:h-full">
-    // <section className="bg-[#F1F1F1] rounded-[15px] lg:rounded-[20px] p-6 lg:p-8 flex flex-col h-[650px] lg:max-h-[740px] lg:h-full">
-    //   <SearchBar />
-    //   <Button
-    //     variant="blueGradient"
-    //     className="cursor-pointer py-2 px-5 rounded mt-8 mb-5 w-fit"
-    //   >
-    //     <RiInbox2Line />
-    //     All
-    //   </Button>
-    //   <div className=" flex flex-col justify-between">
-    //     <EmailsContainer />
-    //     <EmailPagination />
-    //   </div>
-    // </section>
     <section className="flex flex-col w-full p-2 md:p-0">
       {/* welcome messages */}
       <h1 className="text-3xl font-bold mb-3">Hi John,</h1>

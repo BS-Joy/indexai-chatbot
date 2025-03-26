@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import {
   Table,
   TableBody,
@@ -19,6 +19,13 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import gmail from "@/public/gmail.png";
 import { Archive, Reply, Trash2 } from "lucide-react";
+import { marked } from "marked";
+import DOMPurify from "dompurify";
+
+const extractEmail = (fromString) => {
+  const match = fromString.match(/<([^>]+)>/);
+  return match ? match[1] : fromString; // Return email or original string if no match
+};
 
 export default function EmailTable({ emails }) {
   const [selectedEmail, setSelectedEmail] = useState(null);
@@ -42,14 +49,6 @@ export default function EmailTable({ emails }) {
     try {
       // Simulated API call - replace with your actual endpoint
       console.log(`Performing ${action} on email ID: ${selectedEmail.id}`);
-      // const response = await fetch(
-      //   `${process.env.NEXT_PUBLIC_API_URL}/api/v1/emails/${selectedEmail.id}/${action === "reply" ? `${selectedEmail.id}/reply` : action}`,
-      //   {
-      //     method: "POST",
-      //     credentials: "include",
-      //   }
-      // );
-      // if (!response.ok) throw new Error(`Failed to ${action} email`);
 
       // Simulate success
       setTimeout(() => {
@@ -62,6 +61,33 @@ export default function EmailTable({ emails }) {
       setLoading(false);
     }
   };
+
+  const renderEmailBody = useMemo(() => {
+    if (!selectedEmail) return "";
+
+    // Extract body content
+    const rawBody = selectedEmail.body || selectedEmail.snippet || "";
+
+    // Try to detect content type
+    const isHtml = rawBody.includes("<!DOCTYPE") || rawBody.includes("<html");
+    const isMarkdown = /^#{1,6}\s|^\*\s|^\d+\.\s/.test(rawBody);
+
+    let sanitizedContent = "";
+
+    if (isHtml) {
+      // For HTML content, sanitize and use as-is
+      sanitizedContent = DOMPurify.sanitize(rawBody);
+    } else if (isMarkdown) {
+      // Convert markdown to HTML and sanitize
+      const htmlContent = marked.parse(rawBody);
+      sanitizedContent = DOMPurify.sanitize(htmlContent);
+    } else {
+      // Plain text - convert to HTML and escape
+      sanitizedContent = DOMPurify.sanitize(rawBody.replace(/\n/g, "<br>"));
+    }
+
+    return sanitizedContent;
+  }, [selectedEmail]);
 
   return (
     <div className="hidden md:block overflow-x-auto">
@@ -84,6 +110,7 @@ export default function EmailTable({ emails }) {
               className="border-gray-200 cursor-pointer hover:bg-gray-50"
               onClick={() => handleRowClick(email)}
             >
+              {/* provider */}
               <TableCell className="py-3 pl-5">
                 <div
                   className={`flex items-center ${
@@ -97,18 +124,24 @@ export default function EmailTable({ emails }) {
                     alt="Gmail"
                     className="mr-2"
                   />
-                  {email.provider}
+                  {email.provider || "Unknown"}
                 </div>
               </TableCell>
+
+              {/* from */}
               <TableCell className="py-3">
                 <div
                   className={`${
                     index === emails?.length - 1 ? "" : "border-b pb-4"
                   }`}
                 >
-                  {email.from}
+                  {extractEmail(email.from).length > 28
+                    ? extractEmail(email.from).slice(0, 28) + " ..."
+                    : extractEmail(email.from)}
                 </div>
               </TableCell>
+
+              {/* subject */}
               <TableCell>
                 <div
                   className={`${
@@ -118,22 +151,26 @@ export default function EmailTable({ emails }) {
                   {email.subject.slice(0, 20)} ...
                 </div>
               </TableCell>
+
+              {/* email date */}
               <TableCell>
                 <div
                   className={`${
                     index === emails?.length - 1 ? "" : "border-b pb-4"
                   }`}
                 >
-                  {email.date}
+                  {email.date.split(" ").slice(0, 4).join(" ")}
                 </div>
               </TableCell>
+
+              {/* email preview */}
               <TableCell className="pr-5">
                 <div
                   className={`${
                     index === emails?.length - 1 ? "" : "border-b pb-4"
                   }`}
                 >
-                  {email.preview || email.snippet.slice(0, 35)} ...
+                  {email.preview || email.snippet?.slice(0, 35)} ...
                 </div>
               </TableCell>
             </TableRow>
@@ -143,13 +180,15 @@ export default function EmailTable({ emails }) {
 
       {/* Email Details Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={handleClose}>
-        <DialogContent className="max-w-2xl h-[80vh] flex flex-col">
+        <DialogContent className="max-w-3xl flex flex-col">
           <DialogHeader>
             <DialogTitle>{selectedEmail?.subject}</DialogTitle>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <span>From: {selectedEmail?.from}</span>
+              <span>
+                From: {selectedEmail?.from && extractEmail(selectedEmail?.from)}
+              </span>
               <span>•</span>
-              <span>Provider: {selectedEmail?.provider}</span>
+              <span>Provider: {selectedEmail?.provider || "Unknown"}</span>
             </div>
           </DialogHeader>
           <div className="flex gap-2 py-2">
@@ -162,15 +201,6 @@ export default function EmailTable({ emails }) {
               <Reply className="h-4 w-4 mr-2" />
               Reply
             </Button>
-            {/* <Button
-              variant="outline"
-              size="sm"
-              onClick={() => handleAction("archive")}
-              disabled={loading}
-            >
-              <Archive className="h-4 w-4 mr-2" />
-              Archive
-            </Button> */}
             <Button
               variant="outline"
               size="sm"
@@ -184,7 +214,7 @@ export default function EmailTable({ emails }) {
           <div
             className="prose dark:prose-invert max-w-none flex-1 overflow-auto"
             dangerouslySetInnerHTML={{
-              __html: selectedEmail?.body || selectedEmail?.preview || "",
+              __html: renderEmailBody,
             }}
           />
         </DialogContent>

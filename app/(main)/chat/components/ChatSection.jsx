@@ -15,18 +15,39 @@ export default function ChatSection() {
       <div className="mx-auto h-full">
         {/* Logo and Welcome */}
         {show ? (
-          <div className="flex flex-col justify-between">
-            <div className="text-center mb-8">
-              <h1 className="text-4xl font-bold mb-1">Inbox AI.</h1>
-              <p className="text-gray-500">Your Email. Redefined</p>
+          <div className="flex flex-col h-full justify-between">
+            <div className="text-center mb-8 mt-24">
+              <h1 className="text-4xl font-bold mb-1">Inbox-Buddy.AI</h1>
+              <p className="text-gray-500">Your email assistant</p>
               <h2 className="text-xl font-semibold mt-4">
                 Welcome Konstantin!
               </h2>
+              <div className="max-w-md text-center mx-auto space-y-4">
+                {/* <h2 className="text-2xl font-semibold text-center">
+                What can I help with?
+              </h2> */}
+                {/* <h2 className="text-2xl font-bold">
+                Welcome to AI Email Assistant
+              </h2> */}
+                <p className="text-muted-foreground">
+                  I can help you manage your emails, draft responses, find
+                  specific messages, and more. Just ask me anything!
+                </p>
+                <div className="text-sm text-muted-foreground">
+                  Try asking:
+                  <ul className="mt-2 space-y-2">
+                    <li>"Show my unread emails"</li>
+                    <li>"Find emails from [sender]"</li>
+                    <li>"Draft a response to [subject]"</li>
+                    <li>"Summarize my recent emails"</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            <Separator className="mb-4 w-full" />
+            {/* <Separator className="mb-4 w-full" /> */}
 
-            <div className="mt-16 text-center flex flex-col items-center justify-center">
+            {/* <div className="mt-16 text-center flex flex-col items-center justify-center">
               <h2 className="text-4xl font-semibold">What can I help with?</h2>
               <div className="mt-8 max-w-2xl w-full">
                 <div className="relative">
@@ -45,7 +66,8 @@ export default function ChatSection() {
                   </Button>
                 </div>
               </div>
-            </div>
+            </div> */}
+            <ChatInputField />
           </div>
         ) : (
           // Message Blocks
