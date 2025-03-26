@@ -180,7 +180,7 @@ export default function EmailTable({ emails }) {
 
       {/* Email Details Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={handleClose}>
-        <DialogContent className="max-w-2xl h-[80vh] flex flex-col">
+        <DialogContent className="max-w-3xl flex flex-col">
           <DialogHeader>
             <DialogTitle>{selectedEmail?.subject}</DialogTitle>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">

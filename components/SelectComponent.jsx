@@ -23,7 +23,7 @@ export function SelectComponent({
     <Select>
       <SelectTrigger
         className={cn(
-          "md:w-[240px] w-full focus-visible:ring-0 outline-none shadow-none data-[placeholder]:text-[#101010] [&_svg:not([class*='text-'])]:text-[#101010] cursor-pointer",
+          "md:w-[160px] w-full focus-visible:ring-0 outline-none shadow-none data-[placeholder]:text-[#101010] [&_svg:not([class*='text-'])]:text-[#101010] cursor-pointer",
           className
         )}
       >

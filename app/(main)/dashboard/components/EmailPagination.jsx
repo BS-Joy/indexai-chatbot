@@ -12,7 +12,12 @@ export function EmailPagination() {
   return (
     <Pagination className="w-fit mx-0 mt-5 md:mt-0 mb-4 md:mb-0">
       <PaginationContent className="gap-4">
-        <PaginationItem>{/* <PaginationPrevious href="#" /> */}</PaginationItem>
+        <PaginationItem>
+          <PaginationPrevious
+            href="#"
+            className="hover:link-btn hover:border-transparent border bg-white  border-[#101010]"
+          />
+        </PaginationItem>
         <PaginationItem>
           <PaginationLink
             href="#"

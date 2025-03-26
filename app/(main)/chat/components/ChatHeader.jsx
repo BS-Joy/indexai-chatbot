@@ -1,5 +1,6 @@
 import { SelectComponent } from "@/components/SelectComponent";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const aiModels = [
   {
@@ -26,12 +27,13 @@ export default function ChatHeader() {
         seperator={true}
         options={aiModels}
       />
-      <Button
-        variant="blueGradient"
-        className="cursor-pointer text-white px-6 lg:px-10 py-3 lg:py-6 rounded-lg lg:rounded-xl"
+      <Link
+        href="/pricing"
+        // variant="blueGradient"
+        className=" text-white px-6 lg:px-10 py-3 lg:py-3 rounded-lg lg:rounded-xl link-btn"
       >
         Upgrade Plan
-      </Button>
+      </Link>
     </div>
   );
 }
