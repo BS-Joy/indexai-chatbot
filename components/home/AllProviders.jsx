@@ -24,8 +24,8 @@ export default function AllProviders() {
       </div>
 
       {/* Static layout for larger screens (hidden below md, visible on md and above) */}
-      <div className="hidden md:block sm:mt-4">
-        <div className="flex justify-center gap-16">
+      <div className="hidden md:block sm:mt-2">
+        <div className="flex justify-center gap-10">
           <ProviderIcon image={outlook} title={"outlook"} />
           <ProviderIcon image={gmail} title={"gmail"} />
           <ProviderIcon image={slack} title={"slack"} commingSoon={true} />
