@@ -3,6 +3,7 @@ import { EmailPagination } from "./components/EmailPagination";
 import { FaCheckCircle } from "react-icons/fa";
 import Image from "next/image";
 import gmail from "@/public/gmail.png";
+import mail from "@/public/mail.png";
 import meeting from "@/public/meeting.png";
 
 import FilterMails from "./components/FilterMails";
@@ -96,7 +97,7 @@ export default async function HomePage() {
       <div className="flex mt-6 gap-4 md:gap-16 w-full">
         {/* unread mails */}
         <div className="flex gap-3">
-          <Image src={gmail} alt="gmail logo" className="size-11" />
+          <Image src={mail} alt="gmail logo" className="size-11" />
           <div className="flex flex-col">
             <p className="text-[#A0AEC0]">Unread Emails</p>
             <h4 className="text-[#2D3748]">100</h4>
