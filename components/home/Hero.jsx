@@ -6,13 +6,13 @@ import AllProviders from "./AllProviders";
 export default function Hero() {
   return (
     <section className="">
-      <div className="mx-auto max-w-screen-xl px-4 pt-2 md:pt-10 lg:flex flex-col gap-12 lg:items-center">
+      <div className="mx-auto max-w-screen-xl px-4 pt-2 md:pt-24 lg:flex flex-col gap-12 lg:items-center">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="flex justify-center mb-1">
+          {/* <div className="flex justify-center mb-1">
             <p className="bg-[#1010100D] w-fit px-5 md:px-10 py-1 md:py-3 rounded-full text-[#101010] font-medium text-sm md:text-lg">
               Introduce AI Chatbot
             </p>
-          </div>
+          </div> */}
 
           {/* title */}
           <div className="relative">
@@ -47,10 +47,10 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* replay */}
+            {/* reply */}
             <div className="hidden lg:flex absolute bottom-0 animate-bounce">
               <p className="bg-[#00ACDA] py-2 px-10 font-medium rounded-full">
-                Replay
+                Reply
               </p>
               <div className="absolute bottom-8 -right-8">
                 <TiLocationArrow size={"35px"} color="#00ACDA" />
@@ -70,8 +70,9 @@ export default function Hero() {
           </div>
 
           <p className="mt-8 lg:mt-14 sm:text-lg/relaxed">
-            Meet InboxAssistant, the AI that scans your inbox, organizes
-            meetings, and sends responses automatically more short this sentence
+            Let InboxAI help you reach peak efficiency. No more doomless
+            searching. No more missed messages. All your comms in one place, so
+            you can focus on what really matters. Securely.
           </p>
 
           {/* CTA's */}

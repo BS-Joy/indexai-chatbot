@@ -107,7 +107,7 @@ export default async function HomePage() {
         <div className="flex gap-3">
           <Image src={meeting} alt="gmail logo" className="size-11" />
           <div className="flex flex-col">
-            <p className="text-[#A0AEC0]">Unread Emails</p>
+            <p className="text-[#A0AEC0]">Meetings this week</p>
             <h4 className="text-[#2D3748]">10</h4>
           </div>
         </div>
