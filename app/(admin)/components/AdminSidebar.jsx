@@ -24,6 +24,7 @@ import AdminHeader from "./AdminHeader";
 import { PiUsersThree } from "react-icons/pi";
 import { RiAdminLine } from "react-icons/ri";
 import { LuBrainCircuit } from "react-icons/lu";
+import { RiUserForbidLine } from "react-icons/ri";
 
 const navLinks = [
   {
@@ -40,6 +41,11 @@ const navLinks = [
     path: "/admin/waiting-list",
     icon: LiaUserClockSolid,
     label: "Waiting List",
+  },
+  {
+    path: "/admin/blocked-users",
+    icon: RiUserForbidLine,
+    label: "Blocked Users",
   },
   {
     path: "/admin/manage-admin",
