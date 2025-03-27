@@ -22,7 +22,7 @@ export default function Hero() {
               </span>{" "}
               Meet Your <span className="text-[#00ACDA]">New Assistant</span>{" "}
               Meet
-              <span className="text-[#00ACDA]"> InboxAI</span>
+              <span className="text-[#00ACDA]"> Inbox-Buddy</span>
             </h1>
 
             {/* features */}
@@ -48,7 +48,7 @@ export default function Hero() {
             </div>
 
             {/* reply */}
-            <div className="hidden lg:flex absolute bottom-0 animate-bounce">
+            <div className="hidden lg:flex absolute bottom-0 -left-10 animate-bounce">
               <p className="bg-[#00ACDA] py-2 px-10 font-medium rounded-full">
                 Reply
               </p>
@@ -70,7 +70,7 @@ export default function Hero() {
           </div>
 
           <p className="mt-8 lg:mt-14 sm:text-lg/relaxed">
-            Let InboxAI help you reach peak efficiency. No more doomless
+            Let Inbox-Buddy help you reach peak efficiency. No more doomless
             searching. No more missed messages. All your comms in one place, so
             you can focus on what really matters. Securely.
           </p>

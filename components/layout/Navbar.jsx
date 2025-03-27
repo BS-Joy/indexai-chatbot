@@ -3,7 +3,7 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import logoImage from "@/public/logo.png";
+import logoImage from "@/public/Frame 2.svg";
 import NavLinks from "./NavLinks";
 import { usePathname } from "next/navigation";
 import { useState } from "react";

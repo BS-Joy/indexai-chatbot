@@ -9,35 +9,47 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { GrLogout } from "react-icons/gr";
-import { MdOutlineDashboard } from "react-icons/md";
-import { MdOutlineChatBubbleOutline } from "react-icons/md";
-import { RiSettings2Line } from "react-icons/ri";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { LiaUserClockSolid } from "react-icons/lia";
+import { RxDashboard } from "react-icons/rx";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ChatHeader from "@/app/(main)/chat/components/ChatHeader";
 import { usePathname, useRouter } from "next/navigation";
 import { logoutAction } from "@/app/actions/authActions";
 import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
-import { IoMdShareAlt } from "react-icons/io";
 import logoImage from "@/public/Frame 2.svg";
 import Image from "next/image";
+import AdminHeader from "./AdminHeader";
+import { PiUsersThree } from "react-icons/pi";
+import { RiAdminLine } from "react-icons/ri";
+import { LuBrainCircuit } from "react-icons/lu";
 
 const navLinks = [
   {
-    path: "/dashboard",
-    icon: MdOutlineDashboard,
+    path: "/admin",
+    icon: RxDashboard,
     label: "Dashboard",
   },
   {
-    path: "/chat",
-    icon: MdOutlineChatBubbleOutline,
-    label: "Chat",
+    path: "/admin/users",
+    icon: PiUsersThree,
+    label: "Users",
   },
   {
-    path: "#",
-    icon: RiSettings2Line,
-    label: "Your Apps",
+    path: "/admin/waiting-list",
+    icon: LiaUserClockSolid,
+    label: "Waiting List",
+  },
+  {
+    path: "/admin/manage-admin",
+    icon: RiAdminLine,
+    label: "Manage Admins",
+  },
+  {
+    path: "/admin/train-ai",
+    icon: LuBrainCircuit,
+    label: "Train Ai",
   },
 ];
 
@@ -50,7 +62,7 @@ const publicRoutes = [
   "/login",
 ];
 
-export default function Sidebar({ children, user }) {
+export default function AdminSidebar({ children, user }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathName = usePathname();
 
@@ -201,17 +213,6 @@ export default function Sidebar({ children, user }) {
                   {/* sidebar footer */}
                   <div className="space-y-4">
                     <div className="flex flex-col justify-start items-start gap-2 text-sm text-gray-500 dark:text-gray-400">
-                      {/* <Button
-                        type="submit"
-                        className="flex w-full justify-center items-center gap-2 text-sm cursor-pointer bg-[#01A846] hover:bg-[#01A846]/80 py-8 rounded text-white"
-                        // variant="ghost"
-                        // onClick={handleLogout}
-                      >
-                        <IoMdShareAlt className="size-6" />
-                        <span>
-                          Refer a Friend, <br /> get one month free!
-                        </span>
-                      </Button> */}
                       <Button
                         onClick={() => console.log("to profile page")}
                         className="flex items-center gap-2 text-sm cursor-pointer"
@@ -236,7 +237,7 @@ export default function Sidebar({ children, user }) {
           </div>
         </header>
         <section className="p-2 pb-0 md:p-10 md:pb-0">
-          {pathName === "/chat" && <ChatHeader />}
+          {<AdminHeader />}
           {children}
         </section>
       </div>
