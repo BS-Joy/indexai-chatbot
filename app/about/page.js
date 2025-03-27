@@ -69,7 +69,7 @@ export default function page() {
               />
             }
             title="Enterprise-Grade Compliance"
-            description="We adhere to industry-leading security and privacy standards, including GDPR, SOC 2, and ISO 27001 (as applicable), so your organization stays compliant. Your trust is our top priority. With InboxAI, you can confidently automate your workflow while knowing your data is safe, private, and under your control."
+            description="We adhere to industry-leading security and privacy standards, including GDPR, SOC 2, and ISO 27001 (as applicable), so your organization stays compliant. Your trust is our top priority. With Inbox-Buddy, you can confidently automate your workflow while knowing your data is safe, private, and under your control."
           />
         </div>
       </div>

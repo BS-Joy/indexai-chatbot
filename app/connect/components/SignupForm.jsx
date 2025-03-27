@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, User } from "lucide-react";
+import { InboxIcon, Mail, MessageCircleQuestion, User } from "lucide-react";
 import Link from "next/link";
 import InputField from "./InputField";
 
@@ -62,7 +61,7 @@ export default function SignUpForm() {
 
         {/* inbox count */}
         <InputField
-          icon={Mail}
+          icon={InboxIcon}
           name={"inboxCount"}
           type={"text"}
           placeHolder={"How many inboxes / apps would you like to connect?"}
@@ -70,8 +69,9 @@ export default function SignUpForm() {
           handleChange={handleChange}
         />
 
+        {/* feedback */}
         <div className="relative">
-          <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+          <MessageCircleQuestion className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
           <Textarea
             name="painPoint"
             placeholder="If we could fix one of your pain points, what would it be?"

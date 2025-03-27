@@ -14,7 +14,7 @@ export default function ChatCard({
   userRole = "User",
   avatarUrl = "https://images.pexels.com/photos/2834009/pexels-photo-2834009.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   date = "July 22, 2024 - 03:00pm",
-  message = "Hi InboxAI! Can you summarise this doc for me and provide context to the discussion?",
+  message = "Hi Inbox-Buddy! Can you summarise this doc for me and provide context to the discussion?",
   attachments = [
     { name: "Invoice-Version-2.pdf", type: "pdf", isSelected: true },
   ],
