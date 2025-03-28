@@ -7,7 +7,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-export default function AdminTable() {
+export default function AdminTable({ mockData, columns }) {
   return (
     <Table>
       <TableHeader className="bg-blue-100">

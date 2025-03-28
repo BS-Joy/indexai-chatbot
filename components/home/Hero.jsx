@@ -82,7 +82,8 @@ export default function Hero() {
               href="/dashboard"
             >
               <span className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-[#00ACDA] to-[#43D4FB]">
-                <span className="flex h-full w-full items-center justify-center rounded-full bg-[#E9E9E9] text-[#252525] hover:text-[#00ACDA]">
+                {/* <span className="flex h-full w-full items-center justify-center rounded-full bg-[#E9E9E9] text-[#252525] hover:text-[#00ACDA]"> */}
+                <span className="flex h-full w-full items-center justify-center rounded-full bg-white text-[#252525] hover:text-[#00ACDA]">
                   Join the Waiting List
                 </span>
               </span>

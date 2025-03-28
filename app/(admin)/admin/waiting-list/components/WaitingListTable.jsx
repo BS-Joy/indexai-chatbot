@@ -30,6 +30,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { EmailPagination } from "@/app/(main)/dashboard/components/EmailPagination";
+import { Badge } from "@/components/ui/badge";
 
 // Mock data for the table
 const mockData = [
@@ -37,7 +38,8 @@ const mockData = [
     id: 1,
     name: "John Doe",
     email: "john@example.com",
-    totalInbox: 15,
+    totalInbox: 10,
+    status: "pending",
     description:
       "lorem alsdkjflak;sdf asdflosdjfkalsd  foajsdfl;kasjd fl;kasd flsad jf;lkasdjf;lkasdj flkdj fla;ksdjf lask;dfj lska;djf asdl;kfj",
     emailDetails: "Marketing team lead with access to all campaigns.",
@@ -47,6 +49,7 @@ const mockData = [
     name: "Jane Smith",
     email: "jane@example.com",
     totalInbox: 8,
+    status: "pending",
     description:
       "lorem alsdkjflak;sdf asdflosdjfkalsd  foajsdfl;kasjd fl;kasd flsad jf;lkasdjf;lkasdj flkdj fla;ksdjf lask;dfj lska;djf asdl;kfj",
     emailDetails: "Customer support representative handling tier 1 tickets.",
@@ -55,7 +58,8 @@ const mockData = [
     id: 3,
     name: "Robert Johnson",
     email: "robert@example.com",
-    totalInbox: 23,
+    totalInbox: 10,
+    status: "pending",
     description:
       "lorem alsdkjflak;sdf asdflosdjfkalsd  foajsdfl;kasjd fl;kasd flsad jf;lkasdjf;lkasdj flkdj fla;ksdjf lask;dfj lska;djf asdl;kfj",
     emailDetails: "Product manager for the mobile application team.",
@@ -65,6 +69,7 @@ const mockData = [
     name: "Emily Davis",
     email: "emily@example.com",
     totalInbox: 5,
+    status: "pending",
     description:
       "lorem alsdkjflak;sdf asdflosdjfkalsd  foajsdfl;kasjd fl;kasd flsad jf;lkasdjf;lkasdj flkdj fla;ksdjf lask;dfj lska;djf asdl;kfj",
     emailDetails: "UX designer working on the new dashboard interface.",
@@ -73,7 +78,8 @@ const mockData = [
     id: 5,
     name: "Michael Wilson",
     email: "michael@example.com",
-    totalInbox: 17,
+    totalInbox: 10,
+    status: "pending",
     description:
       "lorem alsdkjflak;sdf asdflosdjfkalsd  foajsdfl;kasjd fl;kasd flsad jf;lkasdjf;lkasdj flkdj fla;ksdjf lask;dfj lska;djf asdl;kfj",
     emailDetails: "Backend developer responsible for API integration.",
@@ -113,11 +119,12 @@ export default function WaitingListTable() {
         <Table>
           <TableHeader className="bg-blue-100">
             <TableRow>
-              <TableHead className="w-[200px] pl-9 py-6">Name</TableHead>
+              <TableHead className="pl-9 py-6">Name</TableHead>
               <TableHead className="hidden md:table-cell">Email</TableHead>
               <TableHead className="hidden md:table-cell">Feedback</TableHead>
+              <TableHead className="text-center">Status</TableHead>
               <TableHead className="text-center">Total Inbox</TableHead>
-              <TableHead className="text-center w-[100px]">Actions</TableHead>
+              <TableHead className="text-center">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -131,6 +138,15 @@ export default function WaitingListTable() {
                 </TableCell>
                 <TableCell className="hidden md:table-cell">
                   {user.emailDetails}
+                </TableCell>
+                <TableCell className="text-center">
+                  <Badge
+                    variant={
+                      user?.status === "pending" ? "pending" : "destructive"
+                    }
+                  >
+                    {user.status}
+                  </Badge>
                 </TableCell>
                 <TableCell className="text-center">{user.totalInbox}</TableCell>
                 <TableCell className="text-center">

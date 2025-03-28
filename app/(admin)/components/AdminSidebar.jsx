@@ -9,10 +9,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { GrLogout } from "react-icons/gr";
-import { LiaUserClockSolid } from "react-icons/lia";
-import { RxDashboard } from "react-icons/rx";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import ChatHeader from "@/app/(main)/chat/components/ChatHeader";
 import { usePathname, useRouter } from "next/navigation";
 import { logoutAction } from "@/app/actions/authActions";
 import { useState } from "react";
@@ -21,43 +18,7 @@ import { FaUserCircle } from "react-icons/fa";
 import logoImage from "@/public/Frame 2.svg";
 import Image from "next/image";
 import AdminHeader from "./AdminHeader";
-import { PiUsersThree } from "react-icons/pi";
-import { RiAdminLine } from "react-icons/ri";
-import { LuBrainCircuit } from "react-icons/lu";
-import { RiUserForbidLine } from "react-icons/ri";
-
-const navLinks = [
-  {
-    path: "/admin",
-    icon: RxDashboard,
-    label: "Dashboard",
-  },
-  {
-    path: "/admin/users",
-    icon: PiUsersThree,
-    label: "Users",
-  },
-  {
-    path: "/admin/waiting-list",
-    icon: LiaUserClockSolid,
-    label: "Waiting List",
-  },
-  {
-    path: "/admin/blocked-users",
-    icon: RiUserForbidLine,
-    label: "Blocked Users",
-  },
-  {
-    path: "/admin/manage-admin",
-    icon: RiAdminLine,
-    label: "Manage Admins",
-  },
-  {
-    path: "/admin/train-ai",
-    icon: LuBrainCircuit,
-    label: "Train Ai",
-  },
-];
+import navLinks from "@/utils/navlinks";
 
 const publicRoutes = [
   "/",
