@@ -1,6 +1,5 @@
 import { GiReceiveMoney } from "react-icons/gi";
 import { FaUser, FaUserClock } from "react-icons/fa6";
-import { LoginForm } from "@/components/login-form";
 
 export default function adminPage() {
   return (
@@ -34,7 +33,6 @@ export default function adminPage() {
           <p className="h-full flex items-center text-3xl font-bold">$ 5</p>
         </div>
       </div>
-      <LoginForm />
     </section>
   );
 }

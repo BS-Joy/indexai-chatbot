@@ -22,8 +22,14 @@ export default async function RootLayout({ children }) {
   };
 
   return (
-    <section className="bg-white">
-      <AdminSidebar user={user}>{children}</AdminSidebar>
+    <section className="bg-white overflow-hidden">
+      {token ? (
+        <AdminSidebar user={user} children={children} />
+      ) : (
+        <section className="h-[90vh] flex items-center justify-center">
+          {children}
+        </section>
+      )}
     </section>
   );
 }

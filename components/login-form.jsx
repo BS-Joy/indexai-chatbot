@@ -15,10 +15,12 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { axiosInstance } from "@/lib/axios";
 import { logInAction } from "@/app/actions/authActions";
+import { useRouter } from "next/navigation";
 
 export function LoginForm({ className, ...props }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
@@ -42,7 +44,9 @@ export function LoginForm({ className, ...props }) {
       console.log(userData);
       // Make API call with form data
       const res = await logInAction(userData);
-      console.log(res);
+      if (res.success) {
+        router.push("/admin");
+      }
     } catch (err) {
       console.error("Login failed:", err);
       setError(err.response?.data?.message || "An error occurred during login");

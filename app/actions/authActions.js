@@ -54,6 +54,8 @@ export const logInAction = async (userData) => {
 export const setCookiesAction = async (tokens) => {
   const cookieStore = await cookies(); // Dynamic import for server-only code
 
+  console.log(tokens);
+
   cookieStore.set("accessToken", tokens?.accessToken, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",

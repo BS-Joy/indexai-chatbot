@@ -16,6 +16,7 @@ export default function AuthCallbackPage() {
     if (accessToken && refreshToken) {
       setCookiesAction({ accessToken, refreshToken })
         .then((res) => {
+          console.log(res);
           if (res.success) {
             router.push(redirect || "/dashboard");
           } else {
