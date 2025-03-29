@@ -19,7 +19,6 @@ import { logoutAction } from "@/app/actions/authActions";
 import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
-import { IoMdShareAlt } from "react-icons/io";
 import logoImage from "@/public/Frame 2.svg";
 import Image from "next/image";
 
@@ -57,7 +56,7 @@ export default function Sidebar({ children, user }) {
   const router = useRouter();
 
   const handleLogout = async () => {
-    // await logoutAction();
+    await logoutAction();
 
     router.push("/");
   };
@@ -162,7 +161,7 @@ export default function Sidebar({ children, user }) {
               <Image
                 src={logoImage}
                 alt="Index Ai Logo"
-                className="si w-28 lg:w-fit"
+                className="w-40 lg:w-fit"
               />
             </Link>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>

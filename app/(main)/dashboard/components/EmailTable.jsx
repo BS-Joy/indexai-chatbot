@@ -98,7 +98,7 @@ export default function EmailTable({ emails }) {
             <TableHead className="font-medium">From</TableHead>
             <TableHead className="font-medium">Subject</TableHead>
             <TableHead className="font-medium">Date</TableHead>
-            <TableHead className="font-medium">
+            <TableHead className="font-medium hidden lg:table-cell">
               Latest Message Preview
             </TableHead>
           </TableRow>
@@ -164,7 +164,7 @@ export default function EmailTable({ emails }) {
               </TableCell>
 
               {/* email preview */}
-              <TableCell className="pr-5">
+              <TableCell className="pr-5 hidden lg:table-cell">
                 <div
                   className={`${
                     index === emails?.length - 1 ? "" : "border-b pb-4"

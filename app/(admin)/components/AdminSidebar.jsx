@@ -36,7 +36,7 @@ export default function AdminSidebar({ children, user }) {
   const router = useRouter();
 
   const handleLogout = async () => {
-    // await logoutAction();
+    await logoutAction();
 
     router.push("/");
   };
@@ -141,7 +141,7 @@ export default function AdminSidebar({ children, user }) {
               <Image
                 src={logoImage}
                 alt="Index Ai Logo"
-                className="si w-28 lg:w-fit"
+                className="si w-52 lg:w-fit"
               />
             </Link>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>

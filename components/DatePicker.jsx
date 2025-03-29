@@ -23,7 +23,7 @@ export function DatePicker() {
   };
 
   return (
-    <Popover open={isOpen} onOpenChange={setIsOpen}>
+    <Popover open={isOpen} onOpenChange={setIsOpen} className="w-full">
       <PopoverTrigger asChild>
         <Button
           variant="outline"

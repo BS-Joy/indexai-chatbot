@@ -2,14 +2,16 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Mail, User } from "lucide-react";
 import Link from "next/link";
 import InputField from "@/app/connect/components/InputField";
 import Image from "next/image";
 import gmail from "@/public/gmail.png";
 import outlook from "@/public/outlook.png";
+import { useRouter } from "next/navigation";
+
+const baseUrl =
+  "https://ai-chat-bot-assistant-server.vercel.app/api/v1/auth/oauth";
 
 export default function SignUpForm() {
   const [formData, setFormData] = useState({
@@ -18,6 +20,8 @@ export default function SignUpForm() {
     inboxCount: "",
     painPoint: "",
   });
+
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,19 +37,33 @@ export default function SignUpForm() {
     // Add your form submission logic here
   };
 
+  const handleLogin = (provider) => {
+    router.push(`${baseUrl}/${provider}`);
+  };
+
   return (
     <div className="w-full max-w-md mx-auto">
-      <div className="text-center md:text-start mb-6">
+      <div className="text-center lg:text-start mb-6">
         <h1 className="text-2xl font-bold mb-2">Login</h1>
         <p className="text-gray-600">Choose your mailbox to get started</p>
       </div>
 
-      <div className="flex justify-center md:justify-start gap-10 pb-16 pt-10">
-        <Image src={gmail} className="size-[90px] w-24" alt="gmail logo" />
-        <Image src={outlook} className="size-[90px] w-24" alt="outlook logo" />
+      <div className="flex justify-center lg:justify-start gap-10 pb-16 pt-10 ">
+        <Image
+          onClick={() => handleLogin("google")}
+          src={gmail}
+          className="size-[90px] relative z-50 cursor-pointer"
+          alt="gmail logo"
+        />
+        <Image
+          onClick={() => handleLogin("microsoft")}
+          src={outlook}
+          className="size-[90px] cursor-pointer"
+          alt="outlook logo"
+        />
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 hidden">
         {/* mail */}
         <InputField
           icon={Mail}
@@ -66,7 +84,7 @@ export default function SignUpForm() {
         </div>
       </form>
 
-      <div className="text-center mt-4 text-sm">
+      <div className="text-center mt-4 text-sm hidden">
         Don&apos;t have an account?
         <Link
           href="/connect"

@@ -32,3 +32,50 @@ export const logoutAction = async () => {
     throw error; // Re-throw the error for handling by the caller
   }
 };
+
+export const logInAction = async (userData) => {
+  // Get the cookie store
+  const cookieStore = await cookies();
+
+  try {
+    const res = await axiosInstance.post("/auth/login", userData);
+    if (res.data.success) {
+      cookieStore.set("accessToken", res.data.accessToken, { path: "/" });
+      cookieStore.set("refreshToken", res.data.refreshToken, { path: "/" });
+
+      return res.data;
+    }
+  } catch (error) {
+    console.error("Logout failed:", error);
+    throw error; // Re-throw the error for handling by the caller
+  }
+};
+
+export const setCookiesAction = async (tokens) => {
+  const cookieStore = await cookies(); // Dynamic import for server-only code
+
+  cookieStore.set("accessToken", tokens?.accessToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    maxAge: 86400, // 1 day
+    path: "/",
+  });
+
+  cookieStore.set("refreshToken", tokens?.refreshToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    maxAge: 604800, // 7 days
+    path: "/",
+  });
+
+  const token = cookieStore.get("accessToken");
+
+  if (token?.value === tokens?.accessToken) {
+    return { success: true };
+  } else {
+    console.error("something went wrong during cookies set");
+    return { success: false };
+  }
+};

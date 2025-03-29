@@ -36,7 +36,7 @@ export default function Navbar() {
           <Image
             src={logoImage}
             alt="Index Ai Logo"
-            className="si w-28 lg:w-fit"
+            className="w-40 lg:w-fit"
           />
           {/* <span className="sr-only">Acme Inc</span> */}
         </Link>
